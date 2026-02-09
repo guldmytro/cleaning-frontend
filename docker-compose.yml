@@ -1,0 +1,17 @@
+services:
+  sveltekit:
+    build: .
+    container_name: sveltekit-app
+    ports:
+      - "3000:3000"
+    env_file:
+      - .env
+    environment:
+      NODE_ENV: production
+      PUBLIC_API_URL: "https://example.com/api"
+      ORIGIN: "https://autocrab.com.ua"
+    restart: unless-stopped
+networks:
+  default:
+    external:
+      name: cleaning

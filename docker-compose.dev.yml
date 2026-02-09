@@ -1,0 +1,19 @@
+services:
+  sveltekit:
+    build:
+      context: .
+      dockerfile: Dockerfile.dev
+    container_name: cleaning-frontend-dev
+    ports:
+      - "5175:5173"
+    volumes:
+      - .:/workspace/app
+    working_dir: /workspace/app
+    command: sh -c "npm config set prefix /workspace/npm-global && npm install && npm run dev -- --host 0.0.0.0"
+    restart: unless-stopped
+    environment:
+      NODE_ENV: development
+networks:
+  default:
+    external:
+      name: cleaning

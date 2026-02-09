@@ -1,0 +1,137 @@
+:root {
+    /* breakpoints */
+    --b-desktop: 1919;
+    --b-desktop_px: 1919px;
+    --b-tablet: 834;
+    --b-tablet_px: 834px;
+    --b-mobide: 395;
+    --b-mobide_px: 395px;
+
+    --c-text: #15191F;
+    --c-theme: #EEF3F7;
+    --c-accent: #0063E4;
+    --c-accent-hover: #378DFF;
+    --c-white: #fff;
+
+    --s-v-100: 4px;
+    --s-v-200: 8px;
+    --s-v-250: 12px;
+    --s-v-300: 16px;
+    --s-v-400: 20px;
+    --s-v-500: 24px;
+    --s-v-600: 32px;
+    --s-v-700: 40px;
+    --s-v-800: 48px;
+    --s-v-900: 56px;
+    --s-v-1000: 64px;
+    --s-v-1100: 80px;
+    --s-v-1200: 100px;
+    --s-v-1300: 120px;
+    --s-v-1400: clamp(
+            142px,
+            calc(142px + (18 * ((100vw - var(--b-tablet_px)) / (var(--b-desktop) - var(--b-tablet))))),
+            160px); 
+
+    --s-h-50: 8px;
+    --s-h-100: 20px;
+    --s-h-200: 32px;
+    --s-h-300: 40px;
+    --s-h-400: 48px;
+    --s-h-500: 64px;
+    --s-h-600: 88px;
+
+    --h1: 60px;
+    --h2: 40px;
+    --h3: 35px;
+    --h4: 25px;
+    --h5: 18px;
+    --fz-button-text: clamp(
+            13px,
+            calc(13px + (1 * ((100vw - var(--b-tablet_px)) / (var(--b-desktop) - var(--b-tablet))))),
+            14px);
+
+    --p: clamp(
+             15px,
+             calc(15px + (1 * ((100vw - var(--b-tablet_px)) / (var(--b-desktop) - var(--b-tablet))))),
+             16px);
+    --p-s: 14px;
+    --p-xs: 12px;
+
+    --w-container: 1260px;
+    --p-container: 30px;
+}
+
+@media (max-width: 834px) {
+    :root {
+        --h1: clamp(
+            33px,
+            calc(33px + (27 * ((100vw - var(--b-mobide_px)) / (var(--b-tablet) - var(--b-mobide))))),
+            60px);
+        --h2: clamp(
+            30px,
+            calc(30px + (10 * ((100vw - var(--b-mobide_px)) / (var(--b-tablet) - var(--b-mobide))))),
+            40px);
+        --h3: clamp(
+            25px,
+            calc(25px + (10 * ((100vw - var(--b-mobide_px)) / (var(--b-tablet) - var(--b-mobide))))),
+            35px);
+        --h4: clamp(
+            20px,
+            calc(20px + (5 * ((100vw - var(--b-mobide_px)) / (var(--b-tablet) - var(--b-mobide))))),
+            25px);
+        --s-v-600: clamp(
+            24px,
+            calc(24px + (8 * ((100vw - var(--b-mobide_px)) / (var(--b-tablet) - var(--b-mobide))))),
+            32px);
+        --s-v-700: clamp(
+            32px,
+            calc(32px + (8 * ((100vw - var(--b-mobide_px)) / (var(--b-tablet) - var(--b-mobide))))),
+            40px);
+        --s-v-800: clamp(
+            40px,
+            calc(40px + (8 * ((100vw - var(--b-mobide_px)) / (var(--b-tablet) - var(--b-mobide))))),
+            48px);
+        --s-v-1000: clamp(
+            56px,
+            calc(56px + (8 * ((100vw - var(--b-mobide_px)) / (var(--b-tablet) - var(--b-mobide))))),
+            64px);
+        --s-v-1100: clamp(
+            64px,
+            calc(64px + (16 * ((100vw - var(--b-mobide_px)) / (var(--b-tablet) - var(--b-mobide))))),
+            80px);
+        --s-v-1300: clamp(
+            100px,
+            calc(100px + (20 * ((100vw - var(--b-mobide_px)) / (var(--b-tablet) - var(--b-mobide))))),
+            120px);
+        --s-v-1400: clamp(
+            132px,
+            calc(132px + (10 * ((100vw - var(--b-mobide_px)) / (var(--b-tablet) - var(--b-mobide))))),
+            142px);
+
+
+        --s-h-100: clamp(
+                10px,
+                calc(10px + (10 * ((100vw - var(--b-mobide_px)) / (var(--b-tablet) - var(--b-mobide))))),
+                20px);
+        --s-h-300: clamp(
+                32px,
+                calc(32px + (8 * ((100vw - var(--b-mobide_px)) / (var(--b-tablet) - var(--b-mobide))))),
+                40px);
+        --s-h-400: clamp(
+                40px,
+                calc(40px + (8 * ((100vw - var(--b-mobide_px)) / (var(--b-tablet) - var(--b-mobide))))),
+                48px);
+        --s-h-500: clamp(
+                40px,
+                calc(40px + (24 * ((100vw - var(--b-mobide_px)) / (var(--b-tablet) - var(--b-mobide))))),
+                64px);
+        --s-h-600: clamp(
+                64px,
+                calc(64px + (24 * ((100vw - var(--b-mobide_px)) / (var(--b-tablet) - var(--b-mobide))))),
+                88px);
+        --p-container: clamp(
+                20px,
+                calc(20px + (10 * ((100vw - var(--b-mobide_px)) / (var(--b-tablet) - var(--b-mobide))))),
+                30px);
+    }
+}

@@ -1,0 +1,13 @@
+docker run --rm -it \
+  -v $(pwd):/app \
+  -w /app \
+  -u $(id -u):$(id -g) \
+  node:24 \
+  npx sv create frontend
+
+DEV
+docker compose -f docker-compose.dev.yml up --build
+
+- Оживити форму
+- Зверстати 2 форму
+- Очистка картинок

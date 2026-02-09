@@ -1,0 +1,7 @@
+FROM node:24-slim
+
+WORKDIR /workspace
+
+USER node
+
+EXPOSE 5173
