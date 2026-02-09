@@ -7,11 +7,23 @@
     import Footer from '$lib/assets/components/sections/Footer.svelte';
 
 	let { children } = $props();
+
+	import { browser } from '$app/environment';
+	let enabled = $state(false);
+	if (browser) {
+		if (localStorage.getItem('enabled') === 'true') {
+			enabled = true;
+		}
+		if (page.url.searchParams.get('enabled') === 'true') {
+			localStorage.setItem('enabled', 'true');
+			enabled = true;
+		}
+	}
 </script>
 
 <svelte:head><link rel="icon" href={favicon} /></svelte:head>
 
-{#if false}
+{#if enabled}
 	<div class="body-content">
 		<Header cities={page.data.cities} />
 		{@render children()}
