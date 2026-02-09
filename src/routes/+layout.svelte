@@ -11,8 +11,10 @@
 
 <svelte:head><link rel="icon" href={favicon} /></svelte:head>
 
-<div class="body-content">
-	<Header cities={page.data.cities} />
-	{@render children()}
-</div>
-<Footer cities={page.data.cities} />
+{#if false}
+	<div class="body-content">
+		<Header cities={page.data.cities} />
+		{@render children()}
+	</div>
+	<Footer cities={page.data.cities} />
+{/if}
