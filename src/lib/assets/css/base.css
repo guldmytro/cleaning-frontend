@@ -100,7 +100,7 @@ a {
     top: -1px;
     right: calc(100%);
     height: calc(100% + 2px);
-    width: 999999999px;
+    width: 50000px;
     background-color: var(--c-theme);
     z-index: 100;
 }
