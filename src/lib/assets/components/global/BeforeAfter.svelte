@@ -3,6 +3,7 @@
   export let after: string;
 
   import { onMount } from "svelte";
+    import Sprite from "../ui/Sprite.svelte";
 
   let container: HTMLDivElement;
   let slider: HTMLDivElement;
@@ -71,7 +72,14 @@
             onmousedown={startDrag}
             ontouchstart={startDrag}
         >
-            <button type="button" aria-label="change size"></button>
+            <button type="button" aria-label="change size">
+                <span class="icon">
+                    <Sprite id="arrow-corner-2" />
+                </span>
+                <span class="icon">
+                    <Sprite id="arrow-corner-2" />
+                </span>
+            </button>
         </div>
     </div>
 {:else}
@@ -119,15 +127,25 @@
     }
 
     .slider button {
-        width: 8px;
-        height: 110px;
+        display: flex;
+        flex-flow: row nowrap;
+        align-items: center;
+        column-gap: 8px;
+        justify-content: center;
+        width: 50px;
+        height: 50px;
         position: absolute;
         top: 50%;
         left: 50%;
-        background-color: var(--c-accent);
+        border-radius: 50%;
+        background-color: var(--c-white);
         border: none;
         transform: translate(-50%, -50%);
         cursor: ew-resize;
+    }
+
+    .slider button .icon:first-child {
+        transform: scaleX(-1);
     }
 
     @media (max-width: 834px) {

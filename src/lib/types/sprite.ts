@@ -10,6 +10,7 @@ export const sizes = {
     'letter': [16, 13],
     'remove': [22, 22],
     'logo': [94, 23],
+    'arrow-corner-2': [8, 11],
 } as const;
 
 export type SpriteId = keyof typeof sizes;

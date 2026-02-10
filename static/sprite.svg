@@ -75,4 +75,7 @@
         <path d="M65.042 5.12616L66.3014 0.504175H61.3361V5.12616H65.042Z" stroke="white" stroke-width="0.2" mask="url(#path-1-outside-1_531_628)"/>
         <path d="M63.3009 4.20176V1.42857H64.0036V4.20176H63.3009ZM62.2625 3.16573V2.4646H65.042V3.16573H62.2625Z" stroke="white" stroke-width="0.2" mask="url(#path-1-outside-1_531_628)"/>
     </symbol>
+    <symbol id="arrow-corner-2" width="8" height="11" viewBox="0 0 8 11" fill="none">
+        <path d="M0.668976 0.743164L5.66898 5.24316L0.668976 9.74316" stroke="currentColor" stroke-width="2"/>
+    </symbol>
 </svg>
