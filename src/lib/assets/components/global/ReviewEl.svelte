@@ -47,6 +47,7 @@
         display: flex;
         align-items: center;
         column-gap: 12px;
+        margin-top: auto;
     }
 
     .google-link__icon {
