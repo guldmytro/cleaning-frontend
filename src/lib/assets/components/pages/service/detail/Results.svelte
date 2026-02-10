@@ -14,46 +14,48 @@
     
 </script>
 
-<section class="results">
-    <Container>
-        <div class="results-row">
-            <div class="results-col gr">
-                <SectionHeader 
-                    title={m.resultsTitle()} 
-                    description={m.resultsSubtitle()}
-                    maxWidths={[550, 550]} />
-                <form class="form-simple gr">
-                    <div class="form-simple-header">
-                        <Headline title={m.resultsFormTitle()} 
-                        level={3} levelStyle={5} />
-                    </div>
-                    <div class="form-simple__fields">
-                        <Field 
-                            name="phone" 
-                            placeholder="+41 79 123 45 67" 
-                            label={m.phone()} 
-                            required={true}
-                            value={phone}
-                            type="tel"
-                            handleInput={(value) => phone = value}
-                            />
-                        <Field 
-                            name="name" 
-                            placeholder="+41 79 123 45 67" 
-                            label={m.name()} 
-                            required={true}
-                            value={name}
-                            type="text"
-                            handleInput={(value) => name = value}
-                            />
-                        <Button type="button" size="small" style="default" text={m.send()}/>
-                    </div>
-                </form>
+{#if Array.isArray(results) && results.length}
+    <section class="results">
+        <Container>
+            <div class="results-row">
+                <div class="results-col gr">
+                    <SectionHeader 
+                        title={m.resultsTitle()} 
+                        description={m.resultsSubtitle()}
+                        maxWidths={[550, 550]} />
+                    <form class="form-simple gr">
+                        <div class="form-simple-header">
+                            <Headline title={m.resultsFormTitle()} 
+                            level={3} levelStyle={5} />
+                        </div>
+                        <div class="form-simple__fields">
+                            <Field 
+                                name="phone" 
+                                placeholder="+41 79 123 45 67" 
+                                label={m.phone()} 
+                                required={true}
+                                value={phone}
+                                type="tel"
+                                handleInput={(value) => phone = value}
+                                />
+                            <Field 
+                                name="name" 
+                                placeholder="+41 79 123 45 67" 
+                                label={m.name()} 
+                                required={true}
+                                value={name}
+                                type="text"
+                                handleInput={(value) => name = value}
+                                />
+                            <Button type="button" size="small" style="default" text={m.send()}/>
+                        </div>
+                    </form>
+                </div>
+                <BeforeAfterSlider {results} />
             </div>
-            <BeforeAfterSlider {results} />
-        </div>
-    </Container>
-</section>
+        </Container>
+    </section>
+{/if}
 
 <style>
     .results-row {

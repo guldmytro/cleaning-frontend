@@ -22,7 +22,7 @@
                 </div>
             </div>
             <div class="section-footer">
-                <Button href="/" size="default" style="default" text={m.getQuote()} />
+                <Button href="#form" size="default" style="default" text={m.getQuote()} />
                 <div class="rating">
                     <Rate title="4.8" />
                     <Rate title="100+" description={m.completedOrders()} />

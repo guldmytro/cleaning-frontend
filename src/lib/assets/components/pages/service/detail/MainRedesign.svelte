@@ -20,7 +20,7 @@
                         <Headline {title} level={1} levelStyle={2} />
                         <Paragraph text={description} size="p" weight="400" />
                     </div>
-                    <Button href="/" size="default" style="default" text={m.getQuote()} />
+                    <Button href="#form" size="default" style="default" text={m.getQuote()} />
                 </div>
                 <div class="section-footer">
                     <Rate title="4.8" />
