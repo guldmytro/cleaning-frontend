@@ -69,6 +69,8 @@
 
     .footer-info {
         row-gap: var(--s-v-600);
+        position: relative;
+        z-index: 3;
     }
 
     .footer-info__controls {
