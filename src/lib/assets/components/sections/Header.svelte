@@ -34,7 +34,7 @@
 <style>
     .header {
         position: fixed;
-        top: 32px;
+        top: clamp(30px, calc(28.46px + 0.184vw), 32px);
         left: 0;
         right: 0;
         z-index: 9999999;
@@ -62,6 +62,10 @@
     @media (max-width: 834px) {
         :global(.header-row .menu) {
             display: none;
+        }
+
+        .header {
+            top: clamp(20px, calc(11.83px + 2.179vw), 30px);
         }
 
         .header-controls {

@@ -68,6 +68,7 @@
         width: 100%;
         height: 100dvh;
         background-color: var(--c-theme);
+        z-index: 9999;
     }
 
     .menu-item__link.m {
