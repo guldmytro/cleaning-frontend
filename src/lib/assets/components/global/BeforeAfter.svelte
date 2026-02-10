@@ -73,6 +73,8 @@
             <button type="button" aria-label="change size"></button>
         </div>
     </div>
+{:else}
+    <img src={after} alt="after" class="after-img" loading="lazy">
 {/if}
 
 <style>

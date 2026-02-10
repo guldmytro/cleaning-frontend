@@ -65,10 +65,14 @@ export function parseFaqMarkup(input: string): AccordeonItem[] {
 }
 
 export function normalizeMediaURL(url: string, lURL:string): string {
-    const localURL = new URL(lURL);
-    const imageURL = new URL(url);
-    imageURL.host = localURL.host;
-    imageURL.port = localURL.port;
+    try {
+        const localURL = new URL(lURL);
+        const imageURL = new URL(url);
+        imageURL.host = localURL.host;
+        imageURL.port = localURL.port;
+        return imageURL.toString();
+    } catch(e) {
+        return '';
+    }
 
-    return imageURL.toString();
 }
