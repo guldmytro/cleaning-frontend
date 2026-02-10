@@ -72,7 +72,7 @@ a {
     position: absolute;
     border: none;
     background-color: transparent;
-    z-index: 9999;
+    z-index: 998;
     transform: translateY(-50%);
 }
 
