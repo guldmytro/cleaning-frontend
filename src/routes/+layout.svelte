@@ -6,27 +6,25 @@
     import Header from '$lib/assets/components/sections/Header.svelte';
     import Footer from '$lib/assets/components/sections/Footer.svelte';
 
-	let { children, data } = $props();
+	let { children } = $props();
 
-	import { browser } from '$app/environment';
-	let enabled = $state(false);
-	if (browser) {
-		if (localStorage.getItem('enabled') === 'true') {
-			enabled = true;
-		}
-		if (page.url.searchParams.get('enabled') === 'true') {
-			localStorage.setItem('enabled', 'true');
-			enabled = true;
-		}
-	}
+	// import { browser } from '$app/environment';
+	// let enabled = $state(false);
+	// if (browser) {
+	// 	if (localStorage.getItem('enabled') === 'true') {
+	// 		enabled = true;
+	// 	}
+	// 	if (page.url.searchParams.get('enabled') === 'true') {
+	// 		localStorage.setItem('enabled', 'true');
+	// 		enabled = true;
+	// 	}
+	// }
 </script>
 
 <svelte:head><link rel="icon" href={favicon} /></svelte:head>
 
-{#if enabled}
-	<div class="body-content">
-		<Header cities={page.data.cities} />
-		{@render children()}
-	</div>
-	<Footer cities={page.data.cities} />
-{/if}
+<div class="body-content">
+	<Header cities={page.data.cities} />
+	{@render children()}
+</div>
+<Footer cities={page.data.cities} />
