@@ -14,7 +14,7 @@
 
     import { page } from "$app/state";
 
-    const city = page.data?.currentCity;
+    let city = $derived(page.data?.currentCity);
 </script>
 
 {#if body && textSide && listSide}
