@@ -7,7 +7,7 @@
     export let title : string | null = null;
 </script>
 
-<section class="form-section">
+<section class="form-section" id="form">
     <Container>
         <div class="form-section-header">
             <div class="h-wrapper">

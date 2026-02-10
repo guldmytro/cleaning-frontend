@@ -3,6 +3,7 @@
     import Sprite from './Sprite.svelte';
     export let title: string;
     export let description: string | null = null;
+    import StarGradient from '$lib/assets/img/star-gradient.png';
 </script>
 
 <div class="rate">
@@ -17,7 +18,7 @@
                     </div>
                 {/each}
                 <div class="star">
-                    <Sprite id="star-gradient" />
+                    <img src={StarGradient} alt="star" width="18" height="18">
                 </div>
             </div>
         </div>

@@ -22,7 +22,7 @@
                 </div>
             </div>
             <div class="section-footer">
-                <Button href="/" size="default" style="default" text={m.getQuote()} />
+                <Button href="#form" size="default" style="default" text={m.getQuote()} />
                 <div class="rating">
                     <Rate title="4.8" />
                     <Rate title="100+" description={m.completedOrders()} />
@@ -44,7 +44,7 @@
         flex-flow: column nowrap;
         justify-content: flex-end;
         align-items: flex-start;
-        height: 100svh;
+        height: 100vh;
         min-height: 800px;
         color: var(--c-white);
         row-gap: var(--s-v-600);
