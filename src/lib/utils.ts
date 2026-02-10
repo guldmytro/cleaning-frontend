@@ -1,5 +1,5 @@
 export function replaceStringWithCity(str: string, city: string) {
-    return str.replace('[city]', city);
+    return str.replace(/\[(city|yourcity)\]/g, city);
 }
 
 export function parseBodyMarkup(input: string) {
