@@ -7,10 +7,48 @@
     import Headline from "$lib/assets/components/ui/Headline.svelte";
     import { m } from "$lib/paraglide/messages";
     import BeforeAfterSlider from "$lib/assets/components/global/BeforeAfterSlider.svelte";
+    import { env } from "$env/dynamic/public";
+    import { getLocale } from "$lib/paraglide/runtime";
+    const PUBLIC_LOCAL_API_URL = env.PUBLIC_LOCAL_API_URL!;
 
     let { results } : { results: Result[] } = $props();
     let phone = $state('');
     let name = $state('');
+    
+
+    let disabled = $derived(!phone.length || !name.length);
+    let loading = $state(false);
+
+    let base = PUBLIC_LOCAL_API_URL;
+    base = base.replace('locale', getLocale());
+
+    let submitText = $state(m.send());
+    async function handleSubmit(e: SubmitEvent) {
+        e.preventDefault();
+        loading = true;
+
+        try {
+
+            const res = await fetch(`${base}send-simple-offer/`, {
+                method: "POST",
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    phone,
+                    name
+                })
+            });
+
+            if (!res.ok) {
+                throw new Error("Submit failed");
+            }
+            submitText = m.sent();
+        } catch (err) {
+            console.error(err);
+        }
+    }
+
     
 </script>
 
@@ -23,7 +61,7 @@
                         title={m.resultsTitle()} 
                         description={m.resultsSubtitle()}
                         maxWidths={[550, 550]} />
-                    <form class="form-simple gr">
+                    <form class="form-simple gr" onsubmit={(e) => handleSubmit(e)}>
                         <div class="form-simple-header">
                             <Headline title={m.resultsFormTitle()} 
                             level={3} levelStyle={5} />
@@ -47,7 +85,7 @@
                                 type="text"
                                 handleInput={(value) => name = value}
                                 />
-                            <Button type="button" size="small" style="default" text={m.send()}/>
+                            <Button type="submit" size="small" style="default" text={submitText} disabled={disabled || loading}/>
                         </div>
                     </form>
                 </div>

@@ -54,5 +54,6 @@
 	"successSubtitle": "We are reviewing your request and will get back to you as soon as possible.",
 	"contactsTitle": "Contact Us",
 	"contactsSubtitle": "Have questions or need a quote? We’d be happy to&nbsp;hear&nbsp;from&nbsp;you.",
-	"namePlaceholder": "First and last name"
+	"namePlaceholder": "First and last name",
+	"sent": "Sent!"
 }
