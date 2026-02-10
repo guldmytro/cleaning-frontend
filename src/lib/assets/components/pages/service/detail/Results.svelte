@@ -40,7 +40,7 @@
                                 />
                             <Field 
                                 name="name" 
-                                placeholder="+41 79 123 45 67" 
+                                placeholder={m.namePlaceholder()}
                                 label={m.name()} 
                                 required={true}
                                 value={name}

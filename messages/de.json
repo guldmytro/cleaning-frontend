@@ -53,5 +53,6 @@
 	"successTitle": "Vielen Dank für Ihre Anfrage!",
 	"successSubtitle": "Wir bearbeiten Ihr Anliegen und melden uns so schnell wie möglich bei Ihnen.",
 	"contactsTitle": "Kontaktieren Sie uns",
-	"contactsSubtitle": "Haben Sie Fragen oder möchten Sie eine Offerte erhalten? Wir freuen uns auf Ihre Kontaktaufnahme."
+	"contactsSubtitle": "Haben Sie Fragen oder möchten Sie eine Offerte erhalten? Wir freuen uns auf Ihre Kontaktaufnahme.",
+	"namePlaceholder": "Vor- und Nachname"
 }

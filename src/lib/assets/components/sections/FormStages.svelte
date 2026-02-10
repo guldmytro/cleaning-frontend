@@ -194,14 +194,14 @@
                         name="name" 
                         value={name} 
                         required={true}
-                        placeholder={m.stage3NamePlaceholder()}
+                        placeholder={m.namePlaceholder()}
                         type="text"
                         handleInput={(val) => name = val} />
                 <Field label={m.stage3Phone()} 
                         name="square" 
                         value={phone} 
                         required={true}
-                        placeholder={m.stage3PhonePlaceholder()}
+                        placeholder="+41 79 123 45 67"
                         type="tel"
                         handleInput={(val) => phone = val} />
                 <Field label={m.stage3Email()} 
