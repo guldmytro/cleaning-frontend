@@ -37,6 +37,7 @@
   };
 
   onMount(() => {
+    if (!container) return;
     const w = container.offsetWidth;
     clipX = w / 2;
     slider.style.left = clipX - slider.offsetWidth / 2 + "px";

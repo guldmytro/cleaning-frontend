@@ -33,7 +33,6 @@
     });
 </script>
 
-
 {#if Array.isArray(results) && results.length}
     <div class="glide" bind:this={slider}>
         <div class="glide__track" data-glide-el="track">
