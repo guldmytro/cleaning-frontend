@@ -19,7 +19,7 @@
 <header class="header">
     <Container>
         <div class="header-row">
-            <Logo  />
+            <Logo />
             <HeaderMenu />
             <div class="header-controls">
                 <HeaderControls {cities} white={false} mobile={false} />

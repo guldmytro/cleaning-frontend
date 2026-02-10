@@ -1,19 +1,16 @@
 <script lang="ts">
     import { localizeHref } from "$lib/paraglide/runtime";
+    import { page } from "$app/state";
+    import Sprite from "./Sprite.svelte";
 </script>
 
-<a href={localizeHref('/')} class="logo-link">
-    <strong>Swiss</strong>Worx
+<a href={localizeHref('/' + page?.data?.currentCitySlug || '')} class="logo-link">
+    <Sprite id="logo" />
 </a>
 
 <style>
     .logo-link {
-        color: var(--c-accent);
-        font-size: 20px;
-        line-height: 1; 
-    }
-
-    .logo-link strong {
-        font-weight: 600;
+        width: 94px;
+        padding-bottom: 7px;
     }
 </style>
