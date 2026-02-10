@@ -17,7 +17,7 @@
     
     const categories = page.data?.categories;
 
-    let stage = $state<1 | 2 | 3 | 4>(4);
+    let stage = $state<1 | 2 | 3 | 4>(1);
     let activeTab = $state<number>(0);
     let services = $state<string[]>([]);
     let square = $state('');
