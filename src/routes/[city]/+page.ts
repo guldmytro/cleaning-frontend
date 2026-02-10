@@ -17,9 +17,10 @@ export const load: PageLoad = async ({ fetch, params }) => {
     const urls: string[] = [
         `${base}reviews/`,
         `${base}results/`,
+        `${base}seo/?link=/`,
     ];
 
-    let [reviews, results] = await Promise.all(urls.map(url => fetch(url)))
+    let [reviews, results, seo] = await Promise.all(urls.map(url => fetch(url)))
         .then(responses => Promise.all(responses.map(r => {
             if (!r.ok) error(r.status, r.statusText);
             return r.json();
@@ -34,6 +35,13 @@ export const load: PageLoad = async ({ fetch, params }) => {
     
     return {
         reviews,
-        results
+        results,
+        seo: {
+            robots: seo[0]?.robots || null,
+            noindex: seo[0]?.noindex || null,
+            cannonical: seo[0]?.cannonical || null,
+            title_tag: seo[0]?.title_tag || null,
+            meta_description: seo[0]?.meta_description || null,
+        }
     } satisfies PageProps;
 }

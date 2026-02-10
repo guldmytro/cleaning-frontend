@@ -1,5 +1,6 @@
 <script lang="ts">
     import { page } from '$app/state';
+    import SeoHead from '$lib/assets/components/global/SeoHead.svelte';
     import Main from '$lib/assets/components/pages/home/Main.svelte';
     import Results from '$lib/assets/components/pages/service/detail/Results.svelte';
     import AdvancedForm from '$lib/assets/components/sections/AdvancedForm.svelte';
@@ -8,15 +9,16 @@
     import bg from '$lib/assets/img/bg.jpg';
     import { m } from '$lib/paraglide/messages';
     import { replaceStringWithCity } from '$lib/utils';
-    import type { PageData } from './types';
+    import type { PageProps } from './types';
 
     let title = $derived.by(() => {
         if (page.data?.currentCity) return replaceStringWithCity(m.homeTitle(), page?.data?.currentCity);
         return replaceStringWithCity(m.homeTitle(), '');
     });
-    let { children, data }: { children:any, data: PageData } = $props();
+    let { children, data }: { children:any, data: PageProps } = $props();
 </script>
 
+<SeoHead seo={data.seo} />
 <Main {bg} {title} description={m.homeDescription()} />
 <Categories />
 <Results results={data.results} />

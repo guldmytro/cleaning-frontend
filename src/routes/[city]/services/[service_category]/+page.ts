@@ -17,9 +17,10 @@ export const load: PageLoad = async ({ fetch, params }) => {
     const urls: string[] = [
         `${base}categories/${params.service_category}/`,
         `${base}services/?category=${params.service_category}`,
+        `${base}seo/?link=/services/${params.service_category}`,
     ];
 
-    let [category, services] = await Promise.all(urls.map(url => fetch(url)))
+    let [category, services, seo] = await Promise.all(urls.map(url => fetch(url)))
         .then(responses => Promise.all(responses.map(r => {
             if (!r.ok) error(r.status, r.statusText);
             return r.json();
@@ -35,6 +36,13 @@ export const load: PageLoad = async ({ fetch, params }) => {
 
     return {
         category,
-        services
+        services,
+        seo: {
+            robots: seo[0]?.robots || null,
+            noindex: seo[0]?.noindex || null,
+            cannonical: seo[0]?.cannonical || null,
+            title_tag: seo[0]?.title_tag || null,
+            meta_description: seo[0]?.meta_description || null,
+        }
     } satisfies PageProps;
 }
