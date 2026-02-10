@@ -9,6 +9,7 @@
     import { env } from "$env/dynamic/public";
     import { getLocale } from "$lib/paraglide/runtime";
     const PUBLIC_LOCAL_API_URL = env.PUBLIC_LOCAL_API_URL!;
+    import type { CategoryArchive } from "$lib/types/category";
 
     let base = PUBLIC_LOCAL_API_URL;
     base = base.replace('locale', getLocale());
@@ -79,25 +80,25 @@
             if (!res.ok) {
                 throw new Error("Submit failed");
             }
-
-            const data = await res.json();
-
-            console.log("SUCCESS", data);
             stage = 4;
             resetForm();
         } catch (err) {
             console.error(err);
         }
     }
+
+    function getSelectedCount(category: CategoryArchive) {
+        return category.services.filter(s => services.includes(s.short_title)).length;
+    }
 </script>
 
 <form class="form">
     <div class="form-header gr">
         <div class="progress">
-            <div class="progress-fill" style="width: {(stage / 4) * 100}%;"></div>
+            <div class="progress-fill" style="width: {(stage / 3) * 100}%; max-width: 100%"></div>
         </div>
         <div class="form-header__row">
-            <div class="stage">{stage}/4</div>
+            <div class="stage">{stage}/3</div>
             <div class="controls">
                 {#if stage > 1 && stage !== 4}
                     <Button text={m.formPrev()} size="small" style="ghost" type="button" onClick={() => stage--} />
@@ -125,7 +126,7 @@
                     {#each categories as category, i (category.slug)}
                         {#if Array.isArray(category.services) && category.services.length}
                             <button type="button" class="tab" class:active={i === activeTab} onclick={() => activeTab === i ? null : activeTab = i}>
-                                {category.title} ({category?.services?.length})
+                                {category.title} ({getSelectedCount(category)}/{category?.services?.length})
                             </button>
                         {/if}
                     {/each}
@@ -345,6 +346,7 @@
 
     .checkboxes.active {
         display: flex;
+        flex-wrap: wrap;
     }
 
     .checkbox {
