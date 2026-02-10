@@ -74,7 +74,9 @@
         </div>
     </div>
 {:else}
-    <img src={after} alt="after" class="after-img" loading="lazy">
+    <div class="before-after">
+        <img src={after} alt="after" class="after-img" loading="lazy">
+    </div>
 {/if}
 
 <style>
