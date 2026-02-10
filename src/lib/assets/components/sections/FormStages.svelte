@@ -357,7 +357,7 @@
         white-space: nowrap;
         background-color: transparent;
         border: none;
-        border-bottom: 1px solid transparent;
+        border-bottom: 1px solid rgb(217, 217, 217);
         font-size: var(--p-xs);
         font-weight: 600;
         text-transform: uppercase;
@@ -477,6 +477,12 @@
         .st3-fields {
             grid-template-columns: repeat(2, minmax(0, 1fr));
             row-gap: var(--s-v-500);
+        }
+    }
+
+    @media (max-width: 834px) {
+        .tab {
+            padding-inline: clamp(12px, 3vw, 20px);
         }
     }
 
