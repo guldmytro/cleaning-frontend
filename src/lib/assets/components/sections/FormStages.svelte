@@ -10,15 +10,16 @@
     import { getLocale } from "$lib/paraglide/runtime";
     const PUBLIC_LOCAL_API_URL = env.PUBLIC_LOCAL_API_URL!;
     import type { CategoryArchive } from "$lib/types/category";
+    import Happy from '$lib/assets/img/happy.png';
 
     let base = PUBLIC_LOCAL_API_URL;
     base = base.replace('locale', getLocale());
     
     const categories = page.data?.categories;
 
-    let stage = $state<1 | 2 | 3 | 4>(1);
+    let stage = $state<1 | 2 | 3 | 4>(4);
     let activeTab = $state<number>(0);
-    let services = $state([]);
+    let services = $state<string[]>([]);
     let square = $state('');
     let requirements = $state('');
     let images = $state<File[]>([]);
@@ -93,22 +94,24 @@
 </script>
 
 <form class="form">
-    <div class="form-header gr">
-        <div class="progress">
-            <div class="progress-fill" style="width: {(stage / 3) * 100}%; max-width: 100%"></div>
-        </div>
-        <div class="form-header__row">
-            <div class="stage">{stage}/3</div>
-            <div class="controls">
-                {#if stage > 1 && stage !== 4}
-                    <Button text={m.formPrev()} size="small" style="ghost" type="button" onClick={() => stage--} />
-                {/if}
-                {#if stage !== 4}
-                    <Button text={m.formNext()} size="small" style="default" type="button" onClick={() => stage++} disabled={(stage === 1 && !stage1Valid) || (stage === 2 && !stage2Valid) || stage === 3} />
-                {/if}
+    {#if stage < 4}
+        <div class="form-header gr">
+            <div class="progress">
+                <div class="progress-fill" style="width: {(stage / 3) * 100}%; max-width: 100%"></div>
+            </div>
+            <div class="form-header__row">
+                <div class="stage">{stage}/3</div>
+                <div class="controls">
+                    {#if stage > 1 && stage !== 4}
+                        <Button text={m.formPrev()} size="small" style="ghost" type="button" onClick={() => stage--} />
+                    {/if}
+                    {#if stage < 3}
+                        <Button text={m.formNext()} size="small" style="default" type="button" onClick={() => stage++} disabled={(stage === 1 && !stage1Valid) || (stage === 2 && !stage2Valid) || stage === 3} />
+                    {/if}
+                </div>
             </div>
         </div>
-    </div>
+    {/if}
     <div class="form-content">
         {#if stage === 1}
             <div class="form-content__header gr" style="margin-bottom: var(--s-v-300);">
@@ -227,14 +230,13 @@
                 <p class="submit__text">{m.stage3Footer()}</p>
             </div>
         {:else if stage === 4}
-            <div class="form-content__header gr">
-                <Headline title={m.successTitle()} level={3} levelStyle={4} />
-                <div class="p-wrapper">
-                    <Paragraph 
-                        text={m.successSubtitle()}
-                        size="p"
-                        weight="400"
-                    />
+            <div class="success gr">
+                <div class="success-icon">
+                    <img class="success-icon__img" src={Happy} alt="celebrate" width="64" height="64" loading="lazy">
+                </div>
+                <div class="success-content gr">
+                    <Headline title={m.successTitle()} level={3} levelStyle={2} />
+                    <Paragraph text={m.successSubtitle()} size="p" weight="400" />
                 </div>
             </div>
         {/if}
@@ -410,6 +412,26 @@
         opacity: 0.7;
     }
 
+    .success {
+        row-gap: var(--s-v-500);
+        justify-items: center;
+        text-align: center;
+    }
+
+    .success-icon {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 150px;
+        height: 150px;
+        border-radius: 50%;
+        background-color: var(--c-theme);
+    }
+
+    .success-content {
+        row-gap: var(--s-v-300);
+    }
+
     @media (max-width: 991px) {
         .st2-fields {
             grid-template-columns: minmax(0, 1fr);
@@ -435,6 +457,21 @@
 
         .st3-fields {
             grid-template-columns: minmax(0, 1fr);
+        }
+
+        .success {
+            justify-items: start;
+            text-align: left;
+        }
+
+        .success-icon {
+            width: 120px;
+            height: 120px;
+        }
+
+        .success-icon__img {
+            width: 54px;
+            height: 54px;
         }
     }
 </style>

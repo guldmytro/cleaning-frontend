@@ -50,6 +50,6 @@
 	"stage3CompanyPlaceholder": "Swissworx GmbH",
 	"submit": "Request a quote",
 	"stage3Footer": "By submitting the form, you accept our [Privacy Policy].",
-	"successTitle": "Thank you for your request!",
-	"successSubtitle": "We have received your inquiry and will review the details shortly. Our team will contact you as soon as possible to discuss the next steps."
+	"successTitle": "Thank you for your inquiry!",
+	"successSubtitle": "We are reviewing your request and will get back to you as soon as possible."
 }
