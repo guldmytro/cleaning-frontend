@@ -49,7 +49,7 @@
             <hr class="line">
             <div class="footer-bottom">
                 <nav class="pr-links">
-                    <a href="/" class="pr-link">
+                    <a href={localizeHref(`/${page.data?.currentCitySlug}/legal-notice`)} class="pr-link">
                         {m.legalNotice()}
                     </a>
                     <a href="/" class="pr-link">
