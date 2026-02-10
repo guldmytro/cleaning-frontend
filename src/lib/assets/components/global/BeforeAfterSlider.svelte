@@ -1,22 +1,18 @@
 <script lang="ts">
     import type { Result } from "$lib/types/result";
     import Glide from "@glidejs/glide";
-    import { onDestroy, tick } from "svelte";
+    import { onMount, onDestroy } from "svelte";
     import BeforeAfter from "./BeforeAfter.svelte";
     import SliderArrow from "../ui/SliderArrow.svelte";
+    import { afterNavigate } from "$app/navigation";
 
     export let results: Result[];
 
     let slider: HTMLDivElement;
-    let glide: Glide | null = null;
+    let glide: Glide;
 
-    async function initGlide() {
+    onMount(() => {
         if (!slider) return;
-
-        glide?.destroy();
-
-        await tick();
-
         glide = new Glide(slider, {
             type: "slider",
             perView: 1,
@@ -31,15 +27,29 @@
         });
 
         glide.mount();
-    }
-
-    $: if (results?.length) {
-        initGlide();
-    }
+    });
 
     onDestroy(() => {
         glide?.destroy();
     });
+
+    afterNavigate(() => {
+        if (!slider) return;
+        glide = new Glide(slider, {
+            type: "slider",
+            perView: 1,
+            dragThreshold: false,
+            swipeThreshold: false,
+            gap: 20,
+            breakpoints: {
+                991: {
+                    gap: 10
+                }
+            }
+        });
+
+        glide.mount();
+    })
 </script>
 
 {#if Array.isArray(results) && results.length}
