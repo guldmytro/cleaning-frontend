@@ -64,6 +64,7 @@
         line-height: 1.1;
         background-color: transparent;
         text-align: left;
+        column-gap: 20px;
     }
 
     .accordeon-btn::before {
