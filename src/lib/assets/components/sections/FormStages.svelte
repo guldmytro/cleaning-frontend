@@ -11,6 +11,8 @@
     const PUBLIC_LOCAL_API_URL = env.PUBLIC_LOCAL_API_URL!;
     import type { CategoryArchive } from "$lib/types/category";
     import Happy from '$lib/assets/img/happy.png';
+    import { onMount } from "svelte";
+    import type { ServiceMenu } from "$lib/types/service";
 
     let base = PUBLIC_LOCAL_API_URL;
     base = base.replace('locale', getLocale());
@@ -91,6 +93,40 @@
     function getSelectedCount(category: CategoryArchive) {
         return category.services.filter(s => services.includes(s.short_title)).length;
     }
+
+    // onMount(() => {
+    //     const category = page?.params?.service_category;
+    //     const service = page?.params?.service;
+
+    //     if (!category || !service) return;
+
+    //     let curr
+    //     // if (!page.data?.service || !page?.data?.categories) return;
+    //     // const currentCategory = page.data.categories.find((c: CategoryArchive) => c.)
+    // })
+    // console.log(page);
+
+    let current = $derived.by(() => {
+        if (!page.params?.service) return;
+        if (!page.params?.service_category) return;
+        const currentCategory = page.data?.categories.find((c: CategoryArchive) => c.slug === page.params?.service_category);
+
+        return {
+            currentCategory,
+            
+        }
+    });
+
+    onMount(() => {
+        if (!page.params?.service || !page.params?.service_category) return;
+        activeTab = page.data?.categories.findIndex((c: CategoryArchive) => c.slug === page.params?.service_category) || 0;
+        if (!Array.isArray(page?.data?.categories[activeTab]?.services)) return;
+
+        const currentService = page?.data?.categories[activeTab].services.find((s: ServiceMenu) => s.slug === page.params.service);
+
+        if (!currentService) return;
+        services.push(currentService.short_title);
+    });
 </script>
 
 <form class="form">
