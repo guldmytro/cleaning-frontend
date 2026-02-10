@@ -61,6 +61,7 @@
         font-size: var(--h5);
         line-height: 1.1;
         background-color: transparent;
+        text-align: left;
     }
 
     .accordeon-btn::before {
