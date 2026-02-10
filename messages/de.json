@@ -51,5 +51,7 @@
 	"submit": "Offerte anfordern",
 	"stage3Footer": "Mit dem Absenden des Formulars akzeptieren Sie unsere [Datenschutzerklärung].",
 	"successTitle": "Vielen Dank für Ihre Anfrage!",
-	"successSubtitle": "Wir bearbeiten Ihr Anliegen und melden uns so schnell wie möglich bei Ihnen."
+	"successSubtitle": "Wir bearbeiten Ihr Anliegen und melden uns so schnell wie möglich bei Ihnen.",
+	"contactsTitle": "Kontaktieren Sie uns",
+	"contactsSubtitle": "Haben Sie Fragen oder möchten Sie eine Offerte erhalten? Wir freuen uns auf Ihre Kontaktaufnahme."
 }
