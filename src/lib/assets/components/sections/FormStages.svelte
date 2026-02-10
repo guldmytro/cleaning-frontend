@@ -11,8 +11,8 @@
     const PUBLIC_LOCAL_API_URL = env.PUBLIC_LOCAL_API_URL!;
     import type { CategoryArchive } from "$lib/types/category";
     import Happy from '$lib/assets/img/happy.png';
-    import { onMount } from "svelte";
     import type { ServiceMenu } from "$lib/types/service";
+    import { afterNavigate } from "$app/navigation";
 
     let base = PUBLIC_LOCAL_API_URL;
     base = base.replace('locale', getLocale());
@@ -117,7 +117,7 @@
         }
     });
 
-    onMount(() => {
+    afterNavigate(() => {
         if (!page.params?.service || !page.params?.service_category) return;
         activeTab = page.data?.categories.findIndex((c: CategoryArchive) => c.slug === page.params?.service_category) || 0;
         if (!Array.isArray(page?.data?.categories[activeTab]?.services)) return;
