@@ -11,8 +11,10 @@
     import Reviews from '$lib/assets/components/sections/Reviews.svelte';
     import Faq from '$lib/assets/components/sections/Faq.svelte';
     import AdvancedForm from '$lib/assets/components/sections/AdvancedForm.svelte';
+    import SeoHead from '$lib/assets/components/global/SeoHead.svelte';
 </script>
 
+<SeoHead seo={data.seo} />
 <MainRedesign {title} description={data.service.description} bg={data.service.image} />
 <Body body={data.service.body} />
 <Results results={data.service.results} />
