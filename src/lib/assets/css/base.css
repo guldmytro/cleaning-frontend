@@ -109,3 +109,10 @@ a {
 section:has(.glide__track) {
     overflow: hidden;
 }
+
+@media (max-width: 991px) {
+    .results .glide::after {
+        content: none;
+        display: none;
+    }
+}
