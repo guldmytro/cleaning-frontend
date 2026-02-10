@@ -22,6 +22,11 @@
 </section>
 
 <style>
+    #form {
+        padding-top: var(--s-v-1400);
+        margin-top: calc(var(--s-v-1400) * (-1));
+    }
+
     .form-section-header {
         display: flex;
         justify-content: space-between;

@@ -14,7 +14,6 @@ html {
     background-color: var(--c-theme);
     scrollbar-gutter: stable;
     scroll-behavior: smooth;
-    scroll-padding-top: var(--s-v-1400);
 }
 
 html:has(.mobile-menu-btn.opened) {

@@ -11,7 +11,7 @@
 </script>
 
 {#if href}
-    <a {href} class="btn size-{size} style-{style}" class:full>
+    <a {href} class="btn size-{size} style-{style}" class:full onclick={(e: any) => onClick ? onClick(e) : null}>
         {text}
     </a>
 {:else}

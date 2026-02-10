@@ -29,7 +29,7 @@
     </Container>
 </header>
 
-<MobileWrapper {opened} />
+<MobileWrapper {opened} onCl={() => opened = false} />
 
 <style>
     .header {

@@ -8,7 +8,7 @@
     import { fly, slide } from "svelte/transition";
     import Button from "./Button.svelte";
     import HeaderControls from "../global/HeaderControls.svelte";
-    let { opened }: { opened: boolean } = $props();
+    let { opened, onCl }: { opened: boolean, onCl: () => void } = $props();
     let currentIDX = $state<number | null>(null);
     
     const cities = page?.data?.cities;
@@ -51,7 +51,7 @@
             <HeaderControls {cities} white={true} mobile={true} />
         </div>
         <div class="mobile-wrapper-footer">
-            <Button text={m.getQuote()} href="#contact-form" size="default" style="default" full={true} />
+            <Button onClick={() => onCl()} text={m.getQuote()} href={localizeHref(`/${page.data?.currentCitySlug}/contacts#form`)} size="default" style="default" full={true} />
         </div>
     </div>
 </div>
