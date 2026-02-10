@@ -125,7 +125,7 @@
         const currentService = page?.data?.categories[activeTab].services.find((s: ServiceMenu) => s.slug === page.params.service);
 
         if (!currentService) return;
-        services.push(currentService.short_title);
+        services[0] = currentService.short_title;
     });
 </script>
 
