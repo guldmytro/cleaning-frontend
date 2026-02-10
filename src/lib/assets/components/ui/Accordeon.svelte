@@ -75,6 +75,7 @@
     }
 
     .accordeon-btn__icon {
+        flex-shrink: 0;
         margin-top: 2px;
         width: 14px;
         height: 7px;
