@@ -6,7 +6,7 @@
     import Header from '$lib/assets/components/sections/Header.svelte';
     import Footer from '$lib/assets/components/sections/Footer.svelte';
 
-	let { children } = $props();
+	let { children, data } = $props();
 
 	import { browser } from '$app/environment';
 	let enabled = $state(false);
