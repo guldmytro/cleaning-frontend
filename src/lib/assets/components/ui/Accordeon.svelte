@@ -8,6 +8,8 @@
     }
     let activeItem = $state<number | null>(null);
     let { items } : { items: AccordeonItem[] } = $props();
+    import { replaceStringWithCity } from "$lib/utils";
+    import { page } from "$app/state";
 </script>
 
 {#if Array.isArray(items) && items.length}
@@ -16,7 +18,7 @@
             <li class="accordeon-item">
                 <button type="button" class="accordeon-btn" class:active={activeItem === i} onclick={() => activeItem = activeItem === i ? null : i}>
                     <span class="accordeon-btn__text">
-                        {item.title}
+                        {replaceStringWithCity(item.title, page.data?.currentCity || '')}
                     </span>
                     <span class="accordeon-btn__icon">
                         <Sprite id="arrow-down" />
@@ -24,7 +26,7 @@
                 </button>
                 {#if activeItem === i}
                     <div class="accordeon-content" transition:slide={{duration: 180}}>
-                        {item.text}
+                        {replaceStringWithCity(item.text, page.data?.currentCity || '')}
                     </div>
                 {/if}
             </li>
