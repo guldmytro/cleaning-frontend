@@ -416,7 +416,7 @@
     }
 
     .checkbox:checked + .label__text {
-        color: var(--c-accent);
+        color: var(--c-text);
         border-color: var(--c-accent);
     }
 
