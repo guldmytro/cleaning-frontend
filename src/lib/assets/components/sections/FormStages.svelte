@@ -481,7 +481,7 @@
     .bottom-controls {
         display: flex;
         flex-flow: row nowrap;
-        padding-top: var(--s-h-800);
+        padding-top: var(--s-v-800);
         column-gap: var(--s-h-50);
     }
 
@@ -531,6 +531,11 @@
         .success-icon__img {
             width: 54px;
             height: 54px;
+        }
+
+        .bottom-controls {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
         }
     }
 </style>
