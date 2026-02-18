@@ -58,7 +58,7 @@
     }
 
     .style-ghost {
-        color: var(--c-accent);
+        color: var(--c-text);
         background-color: transparent;
         transition: background-color 180ms ease, color 180ms ease;
         will-change: background-color color;
