@@ -12,6 +12,7 @@
     import Faq from '$lib/assets/components/sections/Faq.svelte';
     import AdvancedForm from '$lib/assets/components/sections/AdvancedForm.svelte';
     import SeoHead from '$lib/assets/components/global/SeoHead.svelte';
+    import Banner from '$lib/assets/components/pages/service/detail/Banner.svelte';
 </script>
 
 <SeoHead seo={data.seo} />
@@ -19,5 +20,6 @@
 <Body body={data.service.body} />
 <Results results={data.service.results} />
 <Reviews reviews={data.reviews} />
+<Banner />
 <AdvancedForm />
 <Faq faq={data.service.faq} />

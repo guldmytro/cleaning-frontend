@@ -7,11 +7,12 @@
     export let full: boolean = false;
     export let onClick: any = null;
     export let disabled: boolean = false;
+    export let white: boolean = false;
 
 </script>
 
 {#if href}
-    <a {href} class="btn size-{size} style-{style}" class:full onclick={(e: any) => onClick ? onClick(e) : null}>
+    <a {href} class="btn size-{size} style-{style}" class:full class:white onclick={(e: any) => onClick ? onClick(e) : null}>
         {text}
     </a>
 {:else}
@@ -77,5 +78,11 @@
     :disabled {
         pointer-events: none;
         opacity: 0.5;
+    }
+
+    .white {
+        background-color: var(--c-white);
+        color: var(--c-text);
+        border-color: var(--c-white);
     }
 </style>

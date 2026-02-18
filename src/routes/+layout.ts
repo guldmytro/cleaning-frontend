@@ -30,7 +30,8 @@ export const load: LayoutLoad = async ({ fetch, params }) => {
         return redirect(302, localizeHref(`/${cities[0].slug}`));
     }
 
-    const currentCity = cities.find((city: {slug: string}) => city.slug === params.city)?.title;
+    const currentCity = cities.find((city: {slug: string}) => city.slug === params.city);
+    const currentCityTitle = currentCity?.title || '';
     const currentCitySlug = cities.find((city: {slug: string}) => city.slug === params.city)?.slug;
     if (!currentCity) error(404, 'Page not found');
 
@@ -47,7 +48,8 @@ export const load: LayoutLoad = async ({ fetch, params }) => {
     return {
         cities,
         categories,
-        currentCity,
+        currentCity: currentCityTitle,
+        currentCityObj: currentCity,
         currentCitySlug,
     } satisfies LayoutProps;
 }

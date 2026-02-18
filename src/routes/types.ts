@@ -6,5 +6,6 @@ export type LayoutProps = {
     cities: City[];
     currentCity: string;
     currentCitySlug: string;
+    currentCityObj: City;
     categories: CategoryArchive[];
 }
