@@ -47,7 +47,7 @@
     }
     
     .style-default {
-        color: var(--c-white);
+        color: var(--c-text);
         background-color: var(--c-accent);
         transition: background-color 180ms ease, opacity 180ms ease;
         will-change: background-color, opacity;

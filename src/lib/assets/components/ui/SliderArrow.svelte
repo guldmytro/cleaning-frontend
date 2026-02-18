@@ -17,7 +17,7 @@
         border-radius: 50%;
         background-color: var(--c-accent);
         border: none;
-        color: var(--c-white);
+        color: var(--c-text);
         transition: background-color 180ms ease;
         will-change: background-color;
     }
