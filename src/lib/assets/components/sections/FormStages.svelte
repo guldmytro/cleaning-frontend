@@ -276,6 +276,16 @@
                 </div>
             </div>
         {/if}
+        {#if stage < 3}
+            <div class="bottom-controls">
+                {#if stage > 1 && stage !== 4}
+                    <Button text={m.formPrev()} size="small" style="ghost" type="button" onClick={() => stage--} />
+                {/if}
+                {#if stage < 3}
+                    <Button text={m.formNext()} size="small" style="default" type="button" onClick={() => stage++} disabled={(stage === 1 && !stage1Valid) || (stage === 2 && !stage2Valid) || stage === 3} />
+                {/if}
+            </div>
+        {/if}
     </div>
 </form>
 
@@ -466,6 +476,13 @@
 
     .success-content {
         row-gap: var(--s-v-300);
+    }
+
+    .bottom-controls {
+        display: flex;
+        flex-flow: row nowrap;
+        padding-top: var(--s-h-800);
+        column-gap: var(--s-h-50);
     }
 
     @media (max-width: 991px) {
