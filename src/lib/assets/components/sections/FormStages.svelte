@@ -263,7 +263,7 @@
                     type="submit"
                     disabled={!stage1Valid || !stage2Valid || !stage3Valid || loading}
                     onClick={(e:SubmitEvent) => handleSubmit(e)} />
-                <p class="submit__text">{m.stage3Footer()}</p>
+                <p class="submit__text">{@html m.stage3Footer()}</p>
             </div>
         {:else if stage === 4}
             <div class="success gr">
