@@ -10,7 +10,7 @@
 
 <style>
     .logo-link {
-        width: 94px;
+        width: 115px;
         padding-bottom: 7px;
     }
 </style>
