@@ -9,7 +9,7 @@ export const sizes = {
     'phone': [11, 11],
     'letter': [16, 13],
     'remove': [22, 22],
-    'logo': [94, 23],
+    'logo': [115, 29],
     'arrow-corner-2': [8, 11],
 } as const;
 
