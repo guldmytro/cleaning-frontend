@@ -85,4 +85,9 @@
         color: var(--c-text);
         border-color: var(--c-white);
     }
+
+    .white:hover {
+        background-color: var(--c-white);
+        color: var(--c-text);
+    }
 </style>
