@@ -28,7 +28,7 @@
         border-radius: 6px;
         line-height: 1;
         font-weight: 600;
-        border: 1px solid var(--c-accent);
+        border: 2px solid var(--c-accent);
     }
 
     .size-default {
@@ -47,7 +47,7 @@
     }
     
     .style-default {
-        color: var(--c-text);
+        color: var(--c-white);
         background-color: var(--c-accent);
         transition: background-color 180ms ease, opacity 180ms ease;
         will-change: background-color, opacity;
@@ -58,7 +58,7 @@
     }
 
     .style-ghost {
-        color: var(--c-text);
+        color: var(--c-accent);
         background-color: transparent;
         transition: background-color 180ms ease, color 180ms ease;
         will-change: background-color color;

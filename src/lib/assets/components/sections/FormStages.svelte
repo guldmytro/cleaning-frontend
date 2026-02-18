@@ -408,7 +408,7 @@
         font-size: var(--p-s);
         font-weight: 600;
         padding: 18px 20px;
-        border: 1px solid #E8E8E9;
+        border: 2px solid #E8E8E9;
         border-radius: 6px;
         line-height: 1;
         transition: color 180ms ease, border-color 180ms ease;
@@ -416,7 +416,7 @@
     }
 
     .checkbox:checked + .label__text {
-        color: var(--c-text);
+        color: var(--c-accent);
         border-color: var(--c-accent);
     }
 
