@@ -21,23 +21,23 @@
                     levelStyle={2}
                 />
                 <Paragraph text={page.data?.currentCityObj.section_description} size="p" weight="400" />
-                <Button href="#form" text={m.getQuote()} size="default" style="default" white={true} />
+                <Button href="#form" text={m.getQuote()} size="default" style="default" />
             </div>
             <div
             class="img-wrapper"
             style="
                 background:
-                linear-gradient(270deg, rgba(160,255,238,0) 82.09%, #A0FFEE 100%),
+                linear-gradient(270deg, rgba(255,255,255,0) 82.09%, #fff 100%),
                 url({normalizeMediaURL(page?.data?.currentCityObj.map, PUBLIC_LOCAL_API_URL)}) 50% / cover no-repeat,
-                #A0FFEE;
+                #fff;
             "
             ></div>
             <div class="img-wrapper_mobile"
             style="
                 background: 
-                    linear-gradient(180deg, rgba(160, 255, 238, 0.00) 70.47%, #A0FFEE 100.03%), 
+                    linear-gradient(180deg, rgba(255,255,255,0) 70.47%, #fff 100.03%), 
                     url({normalizeMediaURL(page?.data?.currentCityObj.map, PUBLIC_LOCAL_API_URL)}) 50% / contain no-repeat,
-                    #A0FFEE;
+                    #fff;
                 background-blend-mode: normal, multiply, normal;
             "></div>
         </div>
@@ -49,7 +49,7 @@
     .banner-row {
         display: grid;
         grid-template-columns: repeat(2, minmax(0, 1fr));
-        background-color: #A0FFEE;
+        background-color: var(--c-white);
         border-radius: 10px;
         overflow: hidden;
         min-height: 520px;
@@ -102,3 +102,5 @@
         }
     }
 </style>
+
+
