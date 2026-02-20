@@ -55,5 +55,8 @@
 	"contactsTitle": "Contact Us",
 	"contactsSubtitle": "Have questions or need a quote? We’d be happy to&nbsp;hear&nbsp;from&nbsp;you.",
 	"namePlaceholder": "First and last name",
-	"sent": "Sent!"
+	"sent": "Sent!",
+	"worksLabel": "Scope of Work",
+	"worksPlaceholder": "Please briefly describe the scope of work according to the services selected above.",
+	"worksHelpText": "Property area. Number and size of carpets. Number of sofas and seating area."
 }

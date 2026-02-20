@@ -55,5 +55,8 @@
 	"contactsTitle": "Kontaktieren Sie uns",
 	"contactsSubtitle": "Haben Sie Fragen oder möchten Sie eine Offerte erhalten? Wir freuen uns auf Ihre Kontaktaufnahme.",
 	"namePlaceholder": "Vor- und Nachname",
-	"sent": "Gesendet!"
+	"sent": "Gesendet!",
+	"worksLabel": "Umfang der Arbeiten",
+	"worksPlaceholder": "Bitte beschreiben Sie kurz den Umfang der Arbeiten gemäß den zuvor gewählten Leistungen.",
+	"worksHelpText": "Objektfläche. Anzahl und Fläche der Teppiche. Anzahl der Sofas und Sitzfläche."
 }

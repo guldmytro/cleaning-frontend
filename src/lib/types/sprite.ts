@@ -11,6 +11,7 @@ export const sizes = {
     'remove': [22, 22],
     'logo': [115, 29],
     'arrow-corner-2': [8, 11],
+    'avart': [164, 50],
 } as const;
 
 export type SpriteId = keyof typeof sizes;

@@ -1,4 +1,6 @@
 <script lang="ts">
+    import Paragraph from "./Paragraph.svelte";
+
     export let type: 'text' | 'tel' | 'email';
     export let label: string;
     export let value: string;
@@ -7,27 +9,35 @@
     export let required: boolean;
     export let handleInput: (value: string) => void;
     export let rows = 0;
+    export let helpText: string | null = null;
 </script>
 
-<label class="label">
-    <span class="label__text">{label}{#if required}&nbsp;*{/if}</span>
-    {#if rows}
-        <textarea
-            class="label__field" 
-            {name} 
-            {placeholder} 
-            {required}
-            {rows}
-            bind:value={value}
-            oninput={() => handleInput(value)}></textarea>
-    {:else}
-        <input class="label__field" 
-            {name} {type} {placeholder}
-            {required}
-            bind:value={value}
-            oninput={() => handleInput(value)}>
+<div class="label-wrapper">
+    <label class="label">
+        <span class="label__text">{label}{#if required}&nbsp;*{/if}</span>
+        {#if rows}
+            <textarea
+                class="label__field" 
+                {name} 
+                {placeholder} 
+                {required}
+                {rows}
+                bind:value={value}
+                oninput={() => handleInput(value)}></textarea>
+        {:else}
+            <input class="label__field" 
+                {name} {type} {placeholder}
+                {required}
+                bind:value={value}
+                oninput={() => handleInput(value)}>
+        {/if}
+    </label>
+    {#if helpText}
+        <div class="label-wrapper-text">
+            <Paragraph text={helpText} size="p-xs" weight="400" />
+        </div>
     {/if}
-</label>
+</div>
 
 <style>
     .label {
@@ -57,5 +67,15 @@
 
     .label__field:focus {
         outline: none;
+    }
+
+    .label-wrapper {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr);
+        row-gap: var(--s-v-200);
+    }
+
+    .label-wrapper-text {
+        opacity: 0.7;
     }
 </style>

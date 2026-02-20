@@ -196,12 +196,14 @@
             </div>
             <div class="st2-fields">
                 <div class="col gr">
-                    <Field label={m.stage2Square()} 
+                    <Field label={m.worksLabel()} 
                         name="square" 
                         value={square} 
                         required={true}
-                        placeholder={m.stage2SquarePlaceholder()}
+                        placeholder={m.worksPlaceholder()}
+                        helpText={m.worksHelpText()}
                         type="text"
+                        rows={8}
                         handleInput={(val) => square = val} />
                     <Field label={m.stage2Requirements()} 
                         name="square" 
@@ -209,7 +211,7 @@
                         required={false}
                         placeholder={m.stage2RequirementsPlaceholder()}
                         type="text"
-                        rows={10}
+                        rows={8}
                         handleInput={(val) => requirements = val} />
                 </div>
                 <UploadImages bind:files={images} />

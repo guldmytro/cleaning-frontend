@@ -9,6 +9,7 @@
     import type { CategoryArchive } from "$lib/types/category";
     import { page } from "$app/state";
     import { localizeHref } from "$lib/paraglide/runtime";
+    import Sprite from "../ui/Sprite.svelte";
     const categories: CategoryArchive[] = page?.data?.categories;
 </script>
 
@@ -56,6 +57,9 @@
                         {m.privacyPolicy()}
                     </a>
                 </nav>
+                <a href="https://www.avart.at/" target="_blank" class="avart">
+                    <Sprite id="avart" />
+                </a>
             </div>
         </div>
     </Container>
@@ -136,9 +140,21 @@
         opacity: .4;
     }
 
+    .footer-bottom {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        row-gap: var(--s-v-700);
+    }
+
     @media (max-width: 834px) {
-        .footer-top {
+        .footer-top,
+        .footer-bottom {
             flex-direction: column;
+        }
+
+        .footer-bottom {
+            align-items: flex-start;
         }
     }
 
