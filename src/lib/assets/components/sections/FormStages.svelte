@@ -94,18 +94,6 @@
         return category.services.filter(s => services.includes(s.short_title)).length;
     }
 
-    // onMount(() => {
-    //     const category = page?.params?.service_category;
-    //     const service = page?.params?.service;
-
-    //     if (!category || !service) return;
-
-    //     let curr
-    //     // if (!page.data?.service || !page?.data?.categories) return;
-    //     // const currentCategory = page.data.categories.find((c: CategoryArchive) => c.)
-    // })
-    // console.log(page);
-
     let current = $derived.by(() => {
         if (!page.params?.service) return;
         if (!page.params?.service_category) return;
@@ -127,8 +115,35 @@
         if (!currentService) return;
         services[0] = currentService.short_title;
     });
-</script>
 
+    const translations = {
+        'en': {
+            'area': 'Property area',
+            'carpets': 'Number and area of the carpets',
+            'sofas': 'Number of sofas and seating area'
+        },
+        'de': {
+            'area': 'Objektfläche',
+            'carpets': 'Anzahl und Fläche der Teppiche',
+            'sofas': 'Anzahl der Sofas und Sitzfläche'
+        }
+    } as const;
+
+    let helpText: string = $derived.by(() => {
+        if (!services.length) {
+            const translation = translations[getLocale()];
+            const items = [translation.area];
+            return items.join('. ');
+        } else {
+            const translation = translations[getLocale()];
+            const items = [translation.area];
+            if (services.includes('Teppichreinigung') || services.includes('Carpet Cleaning')) items.push(translation.carpets);
+            if (services.includes('Polster- & Sofareinigung') || services.includes('Upholstery & Sofa Cleaning')) items.push(translation.sofas);
+            return items.join('. ');
+        }
+        
+    });
+</script>
 <form class="form">
     {#if stage < 4}
         <div class="form-header gr">
@@ -201,7 +216,7 @@
                         value={square} 
                         required={true}
                         placeholder={m.worksPlaceholder()}
-                        helpText={m.worksHelpText()}
+                        {helpText}
                         type="text"
                         rows={8}
                         handleInput={(val) => square = val} />
