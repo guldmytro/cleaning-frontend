@@ -3,11 +3,11 @@ import { paraglideMiddleware } from '$lib/paraglide/server';
 import { redirect } from '@sveltejs/kit';
 
 const redirects: Record<string, string> = {
-	'impressum': '/zuerich/legal-notice',
-	'kontakt': '/zuerich/contacts',
-	'reinigungsfirma-zuerich': '/zuerich',
-	'umzugsreinigung-zuerich': '/zuerich/services/spezialreinigung/umzugsreinigung',
-	'reinigungsfirma-berlin-gebaeudereinigung-experten-bern': '/bern'
+	'/impressum': '/zuerich/legal-notice',
+	'/kontakt': '/zuerich/contacts',
+	'/reinigungsfirma-zuerich': '/zuerich',
+	'/umzugsreinigung-zuerich': '/zuerich/services/spezialreinigung/umzugsreinigung',
+	'/reinigungsfirma-berlin-gebaeudereinigung-experten-bern': '/bern'
 };
 
 const handleParaglide: Handle = ({ event, resolve }) => paraglideMiddleware(event.request, ({ request, locale }) => {
