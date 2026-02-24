@@ -1,6 +1,7 @@
 import type { Handle } from '@sveltejs/kit';
 import { paraglideMiddleware } from '$lib/paraglide/server';
 import { redirect } from '@sveltejs/kit';
+import { getLocale } from '$lib/paraglide/runtime';
 
 const redirects: Record<string, string> = {
 	'/impressum': '/zuerich/legal-notice',
@@ -12,11 +13,14 @@ const redirects: Record<string, string> = {
 
 const handleParaglide: Handle = ({ event, resolve }) => paraglideMiddleware(event.request, ({ request, locale }) => {
 	event.request = request;
+	
 
 	const pathname = event.url.pathname;
 
 	if (redirects[pathname]) {
-		throw redirect(301, redirects[pathname]);
+		const locale = getLocale();
+		if (locale === 'de') throw redirect(301, redirects[pathname]);
+		if (locale === 'en') throw redirect(301, '/en' + redirects[pathname]);
 	}
 
 	return resolve(event, {
