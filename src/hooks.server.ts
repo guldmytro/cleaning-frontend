@@ -8,7 +8,12 @@ const redirects: Record<string, string> = {
 	'/kontakt': '/zuerich/contacts',
 	'/reinigungsfirma-zuerich': '/zuerich',
 	'/umzugsreinigung-zuerich': '/zuerich/services/spezialreinigung/umzugsreinigung',
-	'/reinigungsfirma-berlin-gebaeudereinigung-experten-bern': '/bern'
+	'/reinigungsfirma-berlin-gebaeudereinigung-experten-bern': '/bern',
+	'/en/impressum': '/en/zuerich/legal-notice',
+	'/en/kontakt': '/en/zuerich/contacts',
+	'/en/reinigungsfirma-zuerich': '/en/zuerich',
+	'/en/umzugsreinigung-zuerich': '/en/zuerich/services/spezialreinigung/umzugsreinigung',
+	'/en/reinigungsfirma-berlin-gebaeudereinigung-experten-bern': '/en/bern'
 };
 
 const handleParaglide: Handle = ({ event, resolve }) => paraglideMiddleware(event.request, ({ request, locale }) => {
@@ -18,9 +23,7 @@ const handleParaglide: Handle = ({ event, resolve }) => paraglideMiddleware(even
 	const pathname = event.url.pathname;
 
 	if (redirects[pathname]) {
-		const locale = getLocale();
-		if (locale === 'de') throw redirect(301, redirects[pathname]);
-		if (locale === 'en') throw redirect(301, '/en' + redirects[pathname]);
+		throw redirect(301, redirects[pathname]);
 	}
 
 	return resolve(event, {
