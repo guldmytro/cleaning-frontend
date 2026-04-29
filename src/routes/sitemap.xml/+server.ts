@@ -49,14 +49,19 @@ export async function GET() {
         urls += urlEntry(`${BASE}/${city.slug}/contacts`, `${BASE}/en/${city.slug}/contacts`, today);
         for (const category of categories) {
             urls += urlEntry(`${BASE}/${city.slug}/services/${category.slug}`, `${BASE}/en/${city.slug}/services/${category.slug}`, today);
+            const services = await fetch(`${base}services/?category=${category.slug}`).then(r => r.json());
+            if (Array.isArray(services)) {
+                for (const service of services) {
+                    urls += urlEntry(`${BASE}/${city.slug}/services/${category.slug}/${service.slug}`, `${BASE}/en/${city.slug}/services/${category.slug}/${service.slug}`, today);
+                }
+            }
         }
     }
 
 const xml = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset
 xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
-xmlns:xhtml="http://www.w3.org/1999/xhtml">
-${urls}
+xmlns:xhtml="http://www.w3.org/1999/xhtml">${urls}
 </urlset>`.trim();
 
   return new Response(xml, {
