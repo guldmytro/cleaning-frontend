@@ -5,25 +5,22 @@
 	import '$lib/assets/css/all.css';
     import Header from '$lib/assets/components/sections/Header.svelte';
     import Footer from '$lib/assets/components/sections/Footer.svelte';
+	import { localizeUrl } from '$lib/paraglide/runtime';
 
 	let { children } = $props();
 
-	// import { browser } from '$app/environment';
-	// let enabled = $state(false);
-	// if (browser) {
-	// 	if (localStorage.getItem('enabled') === 'true') {
-	// 		enabled = true;
-	// 	}
-	// 	if (page.url.searchParams.get('enabled') === 'true') {
-	// 		localStorage.setItem('enabled', 'true');
-	// 		enabled = true;
-	// 	}
-	// }
+	const BASE = 'https://swiss-worx.ch';
+	let pathname = $derived(page.url.pathname);
+	let deUrl = $derived(localizeUrl(BASE + pathname, {locale: 'de'}).toString());
+	let enUrl = $derived(localizeUrl(BASE + pathname, {locale: 'en'}).toString());
 </script>
 
 <svelte:head>
 	<link rel="icon" href={favicon} />
-	<link rel="canonical" href="https://swiss-worx.ch{page.url.pathname}" />
+	<link rel="canonical" href={BASE + pathname} />
+	<link rel="alternate" hreflang="de"        href={deUrl} />
+  	<link rel="alternate" hreflang="en"        href={enUrl} />
+  	<link rel="alternate" hreflang="x-default" href={deUrl} />
 	
 	<!-- Google tag (gtag.js) -->
 	<script async src="https://www.googletagmanager.com/gtag/js?id=G-EJTQ9WE5HT"></script>
