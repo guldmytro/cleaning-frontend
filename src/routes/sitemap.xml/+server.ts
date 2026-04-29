@@ -1,8 +1,14 @@
-// src/routes/sitemap.xml/+server.js
+import { browser } from "$app/environment";
+import { getLocale } from "$lib/paraglide/runtime";
+import { env } from "$env/dynamic/public";
+const PUBLIC_DOCKER_API_URL = env.PUBLIC_DOCKER_API_URL!;
+const PUBLIC_LOCAL_API_URL = env.PUBLIC_LOCAL_API_URL!;
+import { error } from "@sveltejs/kit";
+
+import type { City } from "$lib/types/city";
 
 const BASE = 'https://swiss-worx.ch';
 
-const cities = ['zuerich', 'bern', 'basel'];
 const services = ['reinigung', 'umzug', 'entsorgung'];
 
 function urlEntry(deHref, enHref, lastmod, priority = '0.8') {
@@ -21,32 +27,44 @@ function urlEntry(deHref, enHref, lastmod, priority = '0.8') {
 export async function GET() {
   const today = new Date().toISOString().split('T')[0];
 
+const locale = getLocale();
+let base = browser ? PUBLIC_LOCAL_API_URL : PUBLIC_DOCKER_API_URL;
+base = base.replace('locale', locale);
+const fetchUrls: string[] = [
+    `${base}cities/`,
+    `${base}categories/`,
+];
+
+let [cities, categories] = await Promise.all(fetchUrls.map(url => fetch(url)))
+    .then(responses => Promise.all(responses.map(r => {
+        if (!r.ok) error(r.status, r.statusText);
+        return r.json();
+    })));
+
   let urls = '';
 
-  // Головна
-  urls += urlEntry(`${BASE}/`, `${BASE}/en`, today, '1.0');
-
-  // Міста
+  // Головна сторінка
   for (const city of cities) {
-    urls += urlEntry(`${BASE}/${city}`, `${BASE}/en/${city}`, today);
+    urls += urlEntry(`${BASE}/${city.slug}`, `${BASE}/en/${city.slug}`, today);
+    urls += urlEntry(`${BASE}/${city.slug}/contacts`, `${BASE}/en/${city.slug}/contacts`, today);
   }
 
-  // Сервіси
-  for (const service of services) {
-    urls += urlEntry(`${BASE}/${service}`, `${BASE}/en/${service}`, today);
-  }
+//   // Сервіси
+//   for (const service of services) {
+//     urls += urlEntry(`${BASE}/${service}`, `${BASE}/en/${service}`, today);
+//   }
 
-  // Міста × Сервіси
-  for (const city of cities) {
-    for (const service of services) {
-      urls += urlEntry(
-        `${BASE}/${city}/${service}`,
-        `${BASE}/en/${city}/${service}`,
-        today,
-        '0.6'
-      );
-    }
-  }
+//   // Міста × Сервіси
+//   for (const city of cities) {
+//     for (const service of services) {
+//       urls += urlEntry(
+//         `${BASE}/${city}/${service}`,
+//         `${BASE}/en/${city}/${service}`,
+//         today,
+//         '0.6'
+//       );
+//     }
+//   }
 
 const xml = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset
