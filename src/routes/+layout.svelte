@@ -23,6 +23,7 @@
 
 <svelte:head>
 	<link rel="icon" href={favicon} />
+	<link rel="canonical" href="https://swiss-worx.ch{page.url.pathname}" />
 	
 	<!-- Google tag (gtag.js) -->
 	<script async src="https://www.googletagmanager.com/gtag/js?id=G-EJTQ9WE5HT"></script>
