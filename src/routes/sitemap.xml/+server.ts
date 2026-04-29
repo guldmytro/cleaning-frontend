@@ -11,7 +11,7 @@ const BASE = 'https://swiss-worx.ch';
 
 const services = ['reinigung', 'umzug', 'entsorgung'];
 
-function urlEntry(deHref, enHref, lastmod, priority = '0.8') {
+function urlEntry(deHref: String, enHref: String, lastmod: String, priority = '0.8') {
   return `
   <url>
     <loc>${deHref}</loc>
@@ -25,46 +25,32 @@ function urlEntry(deHref, enHref, lastmod, priority = '0.8') {
 }
 
 export async function GET() {
-  const today = new Date().toISOString().split('T')[0];
+    const today = new Date().toISOString().split('T')[0];
 
-const locale = getLocale();
-let base = browser ? PUBLIC_LOCAL_API_URL : PUBLIC_DOCKER_API_URL;
-base = base.replace('locale', locale);
-const fetchUrls: string[] = [
-    `${base}cities/`,
-    `${base}categories/`,
-];
+    const locale = getLocale();
+    let base = browser ? PUBLIC_LOCAL_API_URL : PUBLIC_DOCKER_API_URL;
+    base = base.replace('locale', locale);
+    const fetchUrls: string[] = [
+        `${base}cities/`,
+        `${base}categories/`,
+    ];
 
-let [cities, categories] = await Promise.all(fetchUrls.map(url => fetch(url)))
-    .then(responses => Promise.all(responses.map(r => {
-        if (!r.ok) error(r.status, r.statusText);
-        return r.json();
-    })));
+    let [cities, categories] = await Promise.all(fetchUrls.map(url => fetch(url)))
+        .then(responses => Promise.all(responses.map(r => {
+            if (!r.ok) error(r.status, r.statusText);
+            return r.json();
+        })));
 
-  let urls = '';
 
-  // Головна сторінка
-  for (const city of cities) {
-    urls += urlEntry(`${BASE}/${city.slug}`, `${BASE}/en/${city.slug}`, today);
-    urls += urlEntry(`${BASE}/${city.slug}/contacts`, `${BASE}/en/${city.slug}/contacts`, today);
-  }
+    let urls = '';
 
-//   // Сервіси
-//   for (const service of services) {
-//     urls += urlEntry(`${BASE}/${service}`, `${BASE}/en/${service}`, today);
-//   }
-
-//   // Міста × Сервіси
-//   for (const city of cities) {
-//     for (const service of services) {
-//       urls += urlEntry(
-//         `${BASE}/${city}/${service}`,
-//         `${BASE}/en/${city}/${service}`,
-//         today,
-//         '0.6'
-//       );
-//     }
-//   }
+    for (const city of cities) {
+        urls += urlEntry(`${BASE}/${city.slug}`, `${BASE}/en/${city.slug}`, today);
+        urls += urlEntry(`${BASE}/${city.slug}/contacts`, `${BASE}/en/${city.slug}/contacts`, today);
+        for (const category of categories) {
+            urls += urlEntry(`${BASE}/${city.slug}/services/${category.slug}`, `${BASE}/en/${city.slug}/services/${category.slug}`, today);
+        }
+    }
 
 const xml = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset
