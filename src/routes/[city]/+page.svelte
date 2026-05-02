@@ -6,6 +6,7 @@
     import AdvancedForm from '$lib/assets/components/sections/AdvancedForm.svelte';
     import Categories from '$lib/assets/components/sections/Categories.svelte';
     import Reviews from '$lib/assets/components/sections/Reviews.svelte';
+    import SpecialCleaning from '$lib/assets/components/sections/SpecialCleaning.svelte';
     import bg from '$lib/assets/img/bg.jpg';
     import { m } from '$lib/paraglide/messages';
     import { replaceStringWithCity } from '$lib/utils';
@@ -16,11 +17,14 @@
         return replaceStringWithCity(m.homeTitle(), '');
     });
     let { children, data }: { children:any, data: PageProps } = $props();
+
+    let specialCleaning = $derived(page.data.categories.fi)
 </script>
 
 <SeoHead seo={data.seo} />
 <Main {bg} {title} description={m.homeDescription()} />
 <Categories />
+<SpecialCleaning />
 <Results results={data.results} />
 <Reviews reviews={data.reviews} />
 <AdvancedForm />

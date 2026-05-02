@@ -58,5 +58,7 @@
 	"sent": "Gesendet!",
 	"worksLabel": "Umfang der Arbeiten",
 	"worksPlaceholder": "Bitte beschreiben Sie kurz den Umfang der Arbeiten gemäß den zuvor gewählten Leistungen.",
-	"worksHelpText": "Objektfläche. Anzahl und Fläche der Teppiche. Anzahl der Sofas und Sitzfläche."
+	"worksHelpText": "Objektfläche. Anzahl und Fläche der Teppiche. Anzahl der Sofas und Sitzfläche.",
+	"scTitle": "Spezialreinigung in&nbsp;[city]",
+	"scSubtitle": "Neben der regelmässigen Unterhaltsreinigung übernimmt Swissworx auch anspruchsvolle Spezialreinigungen in [city]. Diese Leistungen werden meist einmalig durchgeführt oder in besonderen Situationen benötigt."
 }
