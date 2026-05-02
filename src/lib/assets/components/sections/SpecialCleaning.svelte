@@ -69,6 +69,7 @@
         display: flex;
         flex-flow: row wrap;
         gap: var(--s-v-200);
+        max-width: 550px;
     }
 
     .tags a {
