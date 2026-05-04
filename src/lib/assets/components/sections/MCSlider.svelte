@@ -66,32 +66,7 @@
     <div class="glide" bind:this={slider}>
         <div class="glide__track" data-glide-el="track">
             <ul class="glide__slides">
-                {#each services as service}
-                    <li class="glide__slide">
-                        <Card {service} {category} isSlide={true} />   
-                    </li>
-                {/each}
-                {#each services as service}
-                    <li class="glide__slide">
-                        <Card {service} {category} isSlide={true} />   
-                    </li>
-                {/each}
-                {#each services as service}
-                    <li class="glide__slide">
-                        <Card {service} {category} isSlide={true} />   
-                    </li>
-                {/each}
-                {#each services as service}
-                    <li class="glide__slide">
-                        <Card {service} {category} isSlide={true} />   
-                    </li>
-                {/each}
-                {#each services as service}
-                    <li class="glide__slide">
-                        <Card {service} {category} isSlide={true} />   
-                    </li>
-                {/each}
-                {#each services as service}
+                {#each services as service (service.slug)}
                     <li class="glide__slide">
                         <Card {service} {category} isSlide={true} />   
                     </li>
