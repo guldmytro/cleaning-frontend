@@ -7,6 +7,7 @@
     import Categories from '$lib/assets/components/sections/Categories.svelte';
     import Reviews from '$lib/assets/components/sections/Reviews.svelte';
     import SpecialCleaning from '$lib/assets/components/sections/SpecialCleaning.svelte';
+    import MaintenanceCleaning from '$lib/assets/components/sections/MaintenanceCleaning.svelte';
     import bg from '$lib/assets/img/bg.jpg';
     import { m } from '$lib/paraglide/messages';
     import { replaceStringWithCity } from '$lib/utils';
@@ -24,6 +25,7 @@
 <SeoHead seo={data.seo} />
 <Main {bg} {title} description={m.homeDescription()} />
 <Categories />
+<MaintenanceCleaning />
 <SpecialCleaning />
 <Results results={data.results} />
 <Reviews reviews={data.reviews} />

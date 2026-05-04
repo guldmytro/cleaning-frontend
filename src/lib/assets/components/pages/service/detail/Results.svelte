@@ -48,8 +48,6 @@
             console.error(err);
         }
     }
-
-    
 </script>
 
 {#if Array.isArray(results) && results.length}

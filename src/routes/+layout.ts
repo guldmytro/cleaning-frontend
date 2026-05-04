@@ -41,9 +41,9 @@ export const load: LayoutLoad = async ({ fetch, params }) => {
             title: c.title,
             description: c.description,
             image: normalizeMediaURL(c.image, PUBLIC_LOCAL_API_URL),
-            services: c.services
+            services: c.services.map(s => { return {slug: s.slug, short_title: s.short_title, image: normalizeMediaURL(s.image, PUBLIC_LOCAL_API_URL)} })
         }
-    })
+    });
     
     return {
         cities,

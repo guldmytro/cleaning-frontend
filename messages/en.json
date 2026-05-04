@@ -60,5 +60,7 @@
 	"worksPlaceholder": "Please briefly describe the scope of work according to the services selected above.",
 	"worksHelpText": "Property area. Number and size of carpets. Number of sofas and seating area.",
 	"scTitle": "Special Cleaning in&nbsp;[city]",
-	"scSubtitle": "Regular maintenance cleaning is not the only service — Swissworx also provides demanding special cleaning services in [city]. These services are usually carried out as a one-time job or are required in special situations."
+	"scSubtitle": "Regular maintenance cleaning is not the only service — Swissworx also provides demanding special cleaning services in [city]. These services are usually carried out as a one-time job or are required in special situations.",
+	"mcTitle": "Maintenance Cleaning in&nbsp;[city]",
+	"mcSubtitle": "We support businesses, medical practices, retail stores, and property management companies in&nbsp;[city] with individually tailored cleaning concepts."
 }

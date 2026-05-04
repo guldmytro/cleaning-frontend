@@ -22,5 +22,6 @@ export type ServiceArchive = {
 export type ServiceMenu = {
     slug: string;
     short_title: string;
+    image: string;
 }
 

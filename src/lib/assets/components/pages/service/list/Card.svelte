@@ -1,21 +1,23 @@
 <script lang="ts">
-    import type { ServiceArchive } from "$lib/types/service";
-    import type { CategoryDetail } from "$lib/types/category";
+    import type { ServiceArchive, ServiceMenu } from "$lib/types/service";
+    import type { CategoryDetail, CategoryArchive } from "$lib/types/category";
     import { page } from "$app/state";
     import { localizeHref } from "$lib/paraglide/runtime";
     import Headline from "$lib/assets/components/ui/Headline.svelte";
     import LinkArrow from "$lib/assets/components/ui/LinkArrow.svelte";
-    export let service: ServiceArchive;
-    export let category: CategoryDetail;
+    export let service: ServiceArchive | ServiceMenu;
+    export let category: CategoryDetail | CategoryArchive;
+    export let isSlide: boolean = false;
+    $: levelStyle = isSlide ? 5 : 4;
 </script>
 
-<li class="service">
+<div class="service" class:isSlide>
     <img src={service.image} alt={service.short_title} loading="lazy">
     <div class="service-content gr">
-        <Headline title={service.short_title} level={2} levelStyle={4} href={localizeHref(`/${page?.data?.currentCitySlug}/services/${category.slug}/${service.slug}`)} />
+        <Headline title={service.short_title} level={2} {levelStyle} href={localizeHref(`/${page?.data?.currentCitySlug}/services/${category.slug}/${service.slug}`)} />
         <LinkArrow href={localizeHref(`/${page?.data?.currentCitySlug}/services/${category.slug}/${service.slug}`)} ariaLabel={service.short_title} />
     </div>
-</li>
+</div>
 
 <style>
     .service {
@@ -30,6 +32,10 @@
         color: var(--c-white);
         overflow: hidden;
         isolation: isolate;
+    }
+
+    .isSlide {
+        padding: var(--s-h-300);
     }
 
     .service::after {
@@ -82,6 +88,12 @@
     @media (max-width: 834px) {
         .service {
             height: clamp(360px, calc(294.6px + 17.43vw), 440px);
+        }
+    }
+
+    @media (max-width: 575px) {
+        .isSlide {
+            height: 430px;
         }
     }
 </style>
