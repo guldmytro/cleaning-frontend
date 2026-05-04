@@ -4,7 +4,6 @@
     import Main from '$lib/assets/components/pages/home/Main.svelte';
     import Results from '$lib/assets/components/pages/service/detail/Results.svelte';
     import AdvancedForm from '$lib/assets/components/sections/AdvancedForm.svelte';
-    import Categories from '$lib/assets/components/sections/Categories.svelte';
     import Reviews from '$lib/assets/components/sections/Reviews.svelte';
     import SpecialCleaning from '$lib/assets/components/sections/SpecialCleaning.svelte';
     import MaintenanceCleaning from '$lib/assets/components/sections/MaintenanceCleaning.svelte';
@@ -24,7 +23,6 @@
 
 <SeoHead seo={data.seo} />
 <Main {bg} {title} description={m.homeDescription()} />
-<Categories />
 <MaintenanceCleaning />
 <SpecialCleaning />
 <Results results={data.results} />
