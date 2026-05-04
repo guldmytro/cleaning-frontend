@@ -1,5 +1,6 @@
 <script lang="ts">
     import type { Result } from "$lib/types/result";
+    import Glide from "@glidejs/glide";
     import { onMount, onDestroy } from "svelte";
     import BeforeAfter from "./BeforeAfter.svelte";
     import SliderArrow from "../ui/SliderArrow.svelte";
