@@ -47,14 +47,23 @@
         if (!slider) return;
         glide = new Glide(slider, {
             type: "slider",
-            perView: 1,
+            perView: 4,
             dragThreshold: false,
             swipeThreshold: false,
             gap: 20,
             breakpoints: {
-                991: {
-                    gap: 10
-                }
+                1059: {
+                    gap: 10,
+                    perView: 3
+                },
+                790: {
+                    gap: 10,
+                    perView: 2
+                },
+                575: {
+                    gap: 10,
+                    perView: 1
+                },
             }
         });
 
