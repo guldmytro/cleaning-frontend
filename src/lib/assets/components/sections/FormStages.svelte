@@ -145,7 +145,7 @@
         
     });
 </script>
-<form class="form">
+<form class="form stage-{stage}">
     {#if stage < 4}
         <div class="form-header gr">
             <div class="progress">
@@ -641,6 +641,10 @@
         justify-content: flex-end;
         padding-top: var(--s-v-800);
         column-gap: var(--s-h-50);
+    }
+
+    .stage-1 .bottom-controls {
+        padding-top: var(--s-v-300);
     }
 
     @media (max-width: 991px) {
