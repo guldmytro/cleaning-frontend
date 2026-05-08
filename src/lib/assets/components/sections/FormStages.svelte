@@ -179,7 +179,7 @@
     {/if}
     <div class="form-content">
         {#if stage === 1}
-            <div class="form-content__header gr" style="margin-bottom: var(--s-v-300);">
+            <div class="form-content__header gr" style="margin-bottom: var(--s-v-800);">
                 <Headline title={m.stage1Title()} level={3} levelStyle={4} />
                 <div class="p-wrapper">
                     <Paragraph 
@@ -193,22 +193,47 @@
                 <div class="tabs">
                     {#each categories as category, i (category.slug)}
                         {#if Array.isArray(category.services) && category.services.length}
-                            <button type="button" class="tab" class:active={i === activeTab} onclick={() => activeTab === i ? null : activeTab = i}>
-                                {category.title} ({getSelectedCount(category)}/{category?.services?.length})
-                            </button>
+                            <div class="tab-group">
+                                <button type="button" class="tab" class:active={i === activeTab} onclick={() => activeTab === i ? null : activeTab = i}>
+                                    <span class="tab-col">
+                                        <strong class="headline">
+                                            {category.title}
+                                        </strong>
+                                        <span class="p">
+                                            {#if category.slug === 'unterhaltsreinigung'}
+                                                {#if getLocale() === 'de'}
+                                                    Pflege für Büros & Gewerbeflächen
+                                                {:else}
+                                                    Office & Commercial Cleaning & Care
+                                                {/if}
+                                            {:else}
+                                                {#if getLocale() === 'de'}
+                                                    Gründliche Reinigung nach Bedarf
+                                                {:else}
+                                                    Deep Cleaning as Needed
+                                                {/if}
+                                            {/if}
+                                        </span>
+                                    </span>
+                                    <span class="tab-arrow">
+                                        <span class="cnt">{getSelectedCount(category)}/({category.services.length})</span>
+                                        <span class="arw">
+                                            <span class="arw-inner">
+                                                <Sprite id="arrow-down"/>
+                                            </span>
+                                        </span>
+                                    </span>
+                                </button>
+                                <div class="checkboxes" class:active={activeTab === i}>
+                                    {#each category.services as service (service.short_title)}
+                                        <label class="label">
+                                            <input class="checkbox" type="checkbox" name="services" value={service.short_title} bind:group={services}>
+                                            <span class="label__text">{service.short_title}</span>
+                                        </label>
+                                    {/each}
+                                </div>
+                            </div>
                         {/if}
-                    {/each}
-                </div>
-                <div class="tabs-content">
-                    {#each categories as category, i (category.slug)}
-                        <div class="checkboxes" class:active={activeTab === i}>
-                            {#each category.services as service (service.short_title)}
-                                <label class="label">
-                                    <input class="checkbox" type="checkbox" name="services" value={service.short_title} bind:group={services}>
-                                    <span class="label__text">{service.short_title}</span>
-                                </label>
-                            {/each}
-                        </div>
                     {/each}
                 </div>
             {/if}
@@ -423,33 +448,79 @@
         z-index: -1;
     }
 
+    .tab-group {
+        width: 100%;
+        display: grid;
+        grid-template-columns: minmax(0, 1fr);
+        padding-bottom: var(--s-v-700);
+    }
+
     .tab {
-        padding: 20px;
-        white-space: nowrap;
-        background-color: transparent;
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        padding: 0;
+        row-gap: var(--s-v-100);
         border: none;
-        border-bottom: 1px solid rgb(217, 217, 217);
+        background-color: transparent;
+    }
+
+    .tab-col {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        row-gap: var(--s-v-100);
+    }
+
+    .headline {
+        font-size: var(--h5);
+        font-weight: 600;
+        line-height: 1.1;
+        font-family: 'Inter';
+        color: var(--c-text);
+    }
+
+    .p {
+        font-size: var(--p);
+        font-weight: 400;
+        line-height: 1.2;
+    }
+
+    .tab-arrow {
+        display: flex;
+        flex-flow: row nowrap;
+        align-items: center;
+        column-gap: 4px;
+    }
+
+    .tab-arrow .cnt {
         font-size: var(--p-xs);
         font-weight: 600;
-        text-transform: uppercase;
-        opacity: 0.4;
-        transition: opacity 180ms ease, color 180ms ease, border-color 180ms ease;
+        white-space: nowrap;
+        line-height: 1;
+        font-family: 'Inter';
+    }
+
+    .tab-arrow .arw {
+        width: 20px;
+        height: 20px;
+        flex-shrink: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .arw-inner {
+        width: 8px;
     }
 
     .tab.active {
-        opacity: 1;
-        color: var(--c-accent);
-        border-color: var(--c-accent);
-    }
 
-    .tab:hover {
-        color: var(--c-accent);
-        opacity: 1;
     }
 
     .checkboxes {
         display: none;
-        padding-top: var(--s-v-700);
+        padding-top: var(--s-v-400);
         gap: 12px;
     }
 
