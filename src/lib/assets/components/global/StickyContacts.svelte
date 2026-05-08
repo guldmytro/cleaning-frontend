@@ -33,7 +33,7 @@
         grid-template-columns: minmax(0, 1fr);
         border-top-left-radius: 6px;
         border-bottom-left-radius: 6px;
-        z-index: 100;
+        z-index: 999;
     }
     
     .contact-item {
@@ -65,5 +65,25 @@
         opacity: 0.4;
         width: 35px;
         margin: 0 auto;
+    }
+
+    @media (max-width: 575px) {
+        .contact-block {
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            left: 0;
+            bottom: 0;
+            border-radius: 0;
+        }
+
+        .contact-divider {
+            display: none;
+        }
+
+        .contact-item {
+            width: 100%;
+            height: 60px;
+            background-color: var(--c-white);
+            color: var(--c-accent);
+        }
     }
 </style>
