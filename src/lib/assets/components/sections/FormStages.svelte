@@ -666,13 +666,8 @@
     }
 
     @media (max-width: 575px) {
-        .label {
-            width: 100%;
-        }
-
         .label__text {
             white-space: wrap;
-            width: 100%;
             text-align: center;
         }
 
