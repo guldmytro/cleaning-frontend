@@ -471,6 +471,7 @@
         display: flex;
         flex-direction: column;
         align-items: flex-start;
+        text-align: left;
         row-gap: var(--s-v-100);
     }
 
