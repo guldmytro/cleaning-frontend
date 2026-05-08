@@ -196,7 +196,7 @@
                     {#each categories as category, i (category.slug)}
                         {#if Array.isArray(category.services) && category.services.length}
                             <div class="tab-group">
-                                <button type="button" class="tab" class:active={i === activeTab} onclick={() => activeTab === i ? null : activeTab = i}>
+                                <button type="button" class="tab" class:active={i === activeTab} onclick={() => activeTab === i ? activeTab = -1 : activeTab = i}>
                                     <span class="tab-col">
                                         <strong class="headline">
                                             {category.title}
