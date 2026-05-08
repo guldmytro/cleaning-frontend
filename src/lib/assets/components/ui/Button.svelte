@@ -38,7 +38,7 @@
     }
     
     .size-small {
-        padding: 20px 24px;
+        padding: 15px 20px;
         font-size: 12px;
     }
 

@@ -14,6 +14,7 @@ export const sizes = {
     'avart': [164, 50],
     'arrow-step': [15, 9],
     'whatsapp': [22, 23],
+    'planet': [11, 11],
 } as const;
 
 export type SpriteId = keyof typeof sizes;

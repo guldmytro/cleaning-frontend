@@ -1,20 +1,22 @@
 <script lang="ts">
     import Sprite from "./Sprite.svelte";
     import { fly } from "svelte/transition";
-    import { slide } from "svelte/transition";
     import { afterNavigate } from "$app/navigation";
+    import type { SpriteId } from "$lib/types/sprite";
 
     type Option = {
         label: string;
         value: string;
     }
 
-    let { options, currentOption, white, mobile, handleChange } : { 
+    let { options, currentOption, white, mobile, handleChange, small = false, icon } : { 
         options: Option[], 
         currentOption: Option,
         white: boolean,
         mobile: boolean,
-        handleChange: (value: string) => void
+        handleChange: (value: string) => void,
+        small?: boolean,
+        icon?: SpriteId
     } = $props();
     
     let opened = $state(false);
@@ -29,8 +31,13 @@
     })
 </script>
 
-<div class="select-box" class:white class:mobile>
+<div class="select-box" class:white class:mobile class:small>
     <button type="button" class="current-option" class:opened onclick={() => opened = !opened}>
+        {#if icon}
+            <span class="current-option__i">
+                <Sprite id={icon} />
+            </span>
+        {/if}
         <span class="current-option__text">{currentOption.label}</span>
         <span class="current-option__icon">
             <Sprite id="arrow-down" />
@@ -54,21 +61,25 @@
         width: fit-content;
     }
 
-    /* .select-box.mobile {
-        display: contents;
-    } */
-
     .current-option {
         display: flex;
         align-items: center;
         padding: 16px;
-        column-gap: 8px;
+        column-gap: 6px;
         font-size: var(--p-xs);
         font-weight: 600;
         line-height: 1;
         border-radius: 6px;
         border: none;
         background-color: var(--c-theme);
+    }
+
+    .current-option__i {
+        width: 7px;
+    }
+
+    .small .current-option {
+        padding: 8px 12px;
     }
 
     .white .current-option {
@@ -81,6 +92,7 @@
     }
 
     .current-option__icon {
+        margin-left: 4px;
         width: 8px;
         will-change: transform;
         transition: transform 180ms ease;

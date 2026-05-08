@@ -634,6 +634,10 @@
         margin-top: var(--s-v-500);
     }
 
+    :global(.submit button) {
+        height: 55px;
+    } 
+
     .submit__text {
         font-size: var(--p-xs);
         line-height: 1;

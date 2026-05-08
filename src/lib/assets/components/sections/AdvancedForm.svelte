@@ -23,8 +23,8 @@
 
 <style>
     #form {
-        padding-top: var(--s-v-1400);
-        margin-top: calc(var(--s-v-1400) * (-1));
+        padding-top: calc(var(--s-v-1400) +  100px);
+        margin-top: calc(var(--s-v-1400) * (-1) - 100px);
     }
 
     .form-section-header {

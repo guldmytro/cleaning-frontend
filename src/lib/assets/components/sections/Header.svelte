@@ -2,6 +2,10 @@
     import type { City } from "$lib/types/city";
     import Container from "../global/Container.svelte";
     import Logo from "../ui/Logo.svelte";
+    import { localizeHref } from "$lib/paraglide/runtime";
+    import { page } from "$app/state";
+    import Button from "../ui/Button.svelte";
+    import { m } from "$lib/paraglide/messages";
     import HeaderControls from "../global/HeaderControls.svelte";
     import HeaderMenu from "../ui/HeaderMenu.svelte";
     import MobileMenuBtn from "../ui/MobileMenuBtn.svelte";
@@ -16,13 +20,22 @@
     })
 </script>
 
+
+
 <header class="header">
+    <div class="toper">
+        <Container>
+            <div class="toper-row">
+                <HeaderControls {cities} white={true} mobile={false} />
+            </div>
+        </Container>
+    </div>
     <Container>
         <div class="header-row">
             <Logo />
             <HeaderMenu />
-            <div class="header-controls">
-                <HeaderControls {cities} white={false} mobile={false} />
+            <div class="button-wrapper">
+                <Button href={localizeHref(`/${page?.data?.currentCitySlug}/contacts#form`)} size="small" style="default" text={m.getQuote()} />
             </div>
             <MobileMenuBtn {opened} toggleMenu={(st: boolean) => opened = st} />
         </div>
@@ -34,7 +47,7 @@
 <style>
     .header {
         position: fixed;
-        top: clamp(30px, calc(28.46px + 0.184vw), 32px);
+        top: 0;
         left: 0;
         right: 0;
         z-index: 9999999;
@@ -53,10 +66,12 @@
         backdrop-filter: blur(5px);
     }
 
-    .header-controls {
-        display: flex;
-        flex-flow: row nowrap;
-        column-gap: 8px;
+    .toper {
+        margin-bottom: clamp(12px, 1.2vw + 8px, 24px);
+        background: rgba(255, 255, 255, 0.70);
+        backdrop-filter: blur(5px);
+        position: relative;
+        z-index: 2;
     }
 
     @media (max-width: 834px) {
@@ -64,11 +79,7 @@
             display: none;
         }
 
-        .header {
-            top: clamp(20px, calc(11.83px + 2.179vw), 30px);
-        }
-
-        .header-controls {
+        .button-wrapper {
             display: none;
         }
 

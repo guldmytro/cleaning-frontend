@@ -5,6 +5,7 @@
     import { goto } from "$app/navigation";
 
     import Select from "../ui/Select.svelte";
+    import Sprite from "../ui/Sprite.svelte";
 
     const langs = [
         {
@@ -26,7 +27,7 @@
 
     let { cities, white, mobile = false } : { cities: City[], white: boolean, mobile: boolean} = $props();
 
-
+    let oppositeLocale = $derived(getLocale() === 'en' ? 'de' : 'en');
     const citiesOptions: {
         value: string;
         label: string;
@@ -59,13 +60,86 @@
     }
 </script>
 
-<Select 
-    options={citiesOptions} 
-    currentOption={currentCity} handleChange={(value) => switchCity(value)} 
-    {white}
-    {mobile} />
-<Select 
-    options={langs} 
-    currentOption={currentLanguage} handleChange={(value) => switchLang(value)} 
-    {white}
-    {mobile} />
+<div class="row">
+    <Select 
+        options={citiesOptions} 
+        currentOption={currentCity} handleChange={(value) => switchCity(value)} 
+        {white}
+        small={true}
+        icon="marker"
+        {mobile} />
+
+    <div class="group">
+        <a href="tel:4150500002" class="tel">
+            <span class="tel__icon">
+                <Sprite id="phone" />
+            </span>
+            <span class="tel__text">
+                41 505 00 002
+            </span>
+        </a>
+        <button type="button" class="locale" onclick={() => switchLang(oppositeLocale)}>
+            <span class="locale__icon">
+                <Sprite id="planet" />
+            </span>
+            <span class="locale__text">{oppositeLocale}</span>
+        </button>
+    </div>
+</div>
+
+<style>
+    .row {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding-block: 8px;
+    }
+
+    .group {
+        display: flex;
+        column-gap: var(--s-h-100);
+    }
+
+    .locale {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        column-gap: 5px;
+        border-radius: 6px;
+        border: none;
+        padding: 8px 12px;
+        background-color: var(--c-white);
+    }
+
+    .locale__icon {
+        width: 11px;
+        flex-shrink: 0;
+        transform: translateY(-1px);
+    }
+
+    .locale__text {
+        font-size: var(--p-xs);
+        font-weight: 'Inter';
+        font-weight: 600;
+        line-height: 1;
+        text-transform: uppercase;
+    }
+
+    .tel {
+        display: flex;
+        flex-flow: row nowrap;
+        align-items: center;
+        column-gap: var(--s-h-50);
+    }
+
+    .tel__icon {
+        width: 12px;
+    }
+
+    .tel__text {
+        font-size: var(--p-xs);
+        font-weight: 600;
+        line-height: 1;
+        font-family: 'Inter';
+    }
+</style>

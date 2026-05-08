@@ -47,9 +47,6 @@
                 </ul>
             {/if}
         </div>
-        <div class="mobile-controls">
-            <HeaderControls {cities} white={true} mobile={true} />
-        </div>
         <div class="mobile-wrapper-footer">
             <Button onClick={() => onCl()} text={m.getQuote()} href={localizeHref(`/${page.data?.currentCitySlug}/contacts#form`)} size="default" style="default" full={true} />
         </div>
@@ -61,7 +58,7 @@
     .mobile-wrapper {
         display: none;
         padding-inline: var(--p-container);
-        padding-top: 214px;
+        padding-top: 314px;
         position: fixed;
         top: 0;
         left: 0;
@@ -159,12 +156,8 @@
             font-size: var(--h5);
         }
 
-        .mobile-controls {
-            margin-top: var(--s-v-700);
-        }
-
         .mobile-wrapper {
-            padding-top: 160px;
+            padding-top: 260px;
         }
     }
 </style>
