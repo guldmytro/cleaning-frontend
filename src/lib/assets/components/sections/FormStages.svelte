@@ -438,6 +438,18 @@
         padding-block: var(--s-v-700);
     }
 
+    .tabs::after {
+        content: '';
+        display: block;
+        position: absolute;
+        left: -1000px;
+        right: -1000px;
+        top: calc(var(--s-v-200) * (-1));
+        bottom: -1000px;
+        background-color: #FAFAFA;
+        z-index: -1;
+    }
+
     .tab-group {
         width: 100%;
         display: grid;
@@ -567,6 +579,7 @@
         line-height: 1;
         transition: color 180ms ease, border-color 180ms ease;
         will-change: color, border-color;
+        background-color: var(--c-white);
     }
 
     .checkbox:checked + .label__text {
