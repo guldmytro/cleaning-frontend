@@ -40,6 +40,7 @@
         grid-template-columns: repeat(2, minmax(0, 1fr));
         column-gap: var(--s-h-400);
         padding-top: 150px;
+        margin-top: 68px;
     }
 
     .col {

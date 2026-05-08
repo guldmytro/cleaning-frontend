@@ -27,6 +27,7 @@
 <style>
     .category {
         margin-top: 235px;
+        padding-top: 68px;
     }
 
     .category-row {
@@ -48,6 +49,7 @@
     @media (max-width: 834px) {
         .category {
             margin-top: clamp(175px, calc(126px + 13.07vw), 235px);
+            padding-top: 68px;
         }   
     }
 </style>

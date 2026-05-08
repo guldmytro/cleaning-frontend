@@ -26,7 +26,7 @@
     <div class="toper">
         <Container>
             <div class="toper-row">
-                <HeaderControls {cities} white={true} mobile={false} />
+                <HeaderControls {cities} white={false} mobile={false} />
             </div>
         </Container>
     </div>

@@ -25,6 +25,7 @@
 <style>
     .contacts {
         padding-top: 234px;
+        margin-top: 68px;
     }
 
     .contacts-row {

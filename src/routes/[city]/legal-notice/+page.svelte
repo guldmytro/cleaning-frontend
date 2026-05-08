@@ -141,6 +141,7 @@
 <style>
     .page {
         padding-top: 234px;
+        margin-top: 68px;
     }
 
     .page-header {
