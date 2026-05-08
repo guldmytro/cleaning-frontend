@@ -13,6 +13,7 @@
     import Happy from '$lib/assets/img/happy.png';
     import type { ServiceMenu } from "$lib/types/service";
     import { afterNavigate } from "$app/navigation";
+    import Sprite from "../ui/Sprite.svelte";
 
     let base = PUBLIC_LOCAL_API_URL;
     base = base.replace('locale', getLocale());
@@ -154,10 +155,23 @@
                 <div class="stage">{stage}/3</div>
                 <div class="controls">
                     {#if stage > 1 && stage !== 4}
-                        <Button text={m.formPrev()} size="small" style="ghost" type="button" onClick={() => stage--} />
+                        <button type="button" 
+                                class="btn-arrow btn-arrow_prev"
+                                onclick={() => stage--}>
+                            <span class="btn-arrow__img">
+                                <Sprite id="arrow-step" />
+                            </span>
+                        </button>
                     {/if}
                     {#if stage < 3}
-                        <Button text={m.formNext()} size="small" style="default" type="button" onClick={() => stage++} disabled={(stage === 1 && !stage1Valid) || (stage === 2 && !stage2Valid) || stage === 3} />
+                        <button type="button" 
+                                class="btn-arrow btn-arrow_next"
+                                disabled={(stage === 1 && !stage1Valid) || (stage === 2 && !stage2Valid) || stage === 3}
+                                onclick={() => stage++}>
+                            <span class="btn-arrow__img">
+                                <Sprite id="arrow-step" />
+                            </span>
+                        </button>
                     {/if}
                 </div>
             </div>
@@ -330,6 +344,36 @@
         font-weight: 600;
     }
 
+    .btn-arrow {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 45px;
+        height: 45px;
+        border: 2px solid var(--c-accent);
+        border-radius: 6px;
+        transition: opacity 200ms ease;
+    }
+
+    .btn-arrow:disabled {
+        opacity: 0.5;
+    }
+    
+    .btn-arrow_prev {
+        background-color: transparent;
+        color: var(--c-accent);
+        transform: scaleX(-1);
+    }
+
+    .btn-arrow_next {
+        background-color: var(--c-accent);
+        color: var(--c-white);
+    }
+    
+    .btn-arrow__img {
+        width: 13px;
+    }
+
     .form-header__row {
         justify-content: space-between;
         display: flex;
@@ -498,6 +542,7 @@
     .bottom-controls {
         display: flex;
         flex-flow: row nowrap;
+        justify-content: flex-end;
         padding-top: var(--s-v-800);
         column-gap: var(--s-h-50);
     }
