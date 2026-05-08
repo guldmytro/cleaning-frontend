@@ -433,21 +433,13 @@
         display: flex;
         flex-flow: column nowrap;
         isolation: isolate;
+        padding-block: var(--s-v-700);
     }
 
     .tab-group {
         width: 100%;
         display: grid;
         grid-template-columns: minmax(0, 1fr);
-        padding-block: var(--s-v-700);
-    }
-
-    .tab-group:first-child {
-        padding-bottom: 0;
-    }
-
-    .tab-group:last-child {
-        padding-top: 0;
     }
 
     .tab {
