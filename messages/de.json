@@ -46,6 +46,8 @@
 	"stage3PhonePlaceholder": "Vor- und Nachname",
 	"stage3Email": "Email",
 	"stage3EmailPlaceholder": "example@gmail.com",
+	"stage3Address": "Adresse des Objekts",
+	"stage3AddressPlaceholder": "Strasse, PLZ, Ort...",
 	"stage3Company": "Firmenname (falls vorhanden)",
 	"stage3CompanyPlaceholder": "Swissworx GmbH",
 	"submit": "Offerte anfordern",
@@ -62,5 +64,8 @@
 	"scTitle": "Spezialreinigung in&nbsp;[city]",
 	"scSubtitle": "Neben der regelmässigen Unterhaltsreinigung übernimmt Swissworx auch anspruchsvolle Spezialreinigungen in [city]. Diese Leistungen werden meist einmalig durchgeführt oder in besonderen Situationen benötigt.",
 	"mcTitle": "Unterhaltsreinigung in&nbsp;[city]",
-	"mcSubtitle": "Wir betreuen Unternehmen, Arztpraxen, Ladengeschäfte und Immobilienverwaltungen in&nbsp;[city] mit individuell abgestimmten Reinigungskonzepten."
+	"mcSubtitle": "Wir betreuen Unternehmen, Arztpraxen, Ladengeschäfte und Immobilienverwaltungen in&nbsp;[city] mit individuell abgestimmten Reinigungskonzepten.",
+	"sh1": "✓ Mit dem Absenden des Formulars akzeptieren Sie unsere <a href='/[city]/privacy-policy'>Datenschutzerklärung</a>",
+	"sh2": "✓ Kostenlos und unverbindlich",
+	"sh3": "✓ Antwort meist innerhalb von 1–2 Stunden"
 }

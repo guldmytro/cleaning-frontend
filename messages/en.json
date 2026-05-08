@@ -46,6 +46,8 @@
 	"stage3PhonePlaceholder": "Phone number",
 	"stage3Email": "Email",
 	"stage3EmailPlaceholder": "example@gmail.com",
+	"stage3Address": "Property address",
+	"stage3AddressPlaceholder": "Street, ZIP code, City...",
 	"stage3Company": "Company name (if available)",
 	"stage3CompanyPlaceholder": "Swissworx GmbH",
 	"submit": "Request a quote",
@@ -62,5 +64,8 @@
 	"scTitle": "Special Cleaning in&nbsp;[city]",
 	"scSubtitle": "Regular maintenance cleaning is not the only service — Swissworx also provides demanding special cleaning services in [city]. These services are usually carried out as a one-time job or are required in special situations.",
 	"mcTitle": "Maintenance Cleaning in&nbsp;[city]",
-	"mcSubtitle": "We support businesses, medical practices, retail stores, and property management companies in&nbsp;[city] with individually tailored cleaning concepts."
+	"mcSubtitle": "We support businesses, medical practices, retail stores, and property management companies in&nbsp;[city] with individually tailored cleaning concepts.",
+	"sh1": "✓ By submitting the form, you agree to our <a href='/[city]/privacy-policy'>Privacy Policy</a>",
+	"sh2": "✓ Free and non-binding",
+	"sh3": "✓ Response usually within 1–2 hours"
 }

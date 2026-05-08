@@ -20,7 +20,7 @@
     
     const categories = page.data?.categories;
 
-    let stage = $state<1 | 2 | 3 | 4>(1);
+    let stage = $state<1 | 2 | 3 | 4>(3);
     let activeTab = $state<number>(0);
     let services = $state<string[]>([]);
     let square = $state('');
@@ -29,12 +29,13 @@
     let name = $state('');
     let phone = $state('');
     let email = $state('');
+    let address = $state('');
     let company = $state('');
 
 
     let stage1Valid = $derived(!!services.length);
     let stage2Valid = $derived(!!square.length);
-    let stage3Valid = $derived(!!name.length && !!phone.length && !!email.length);
+    let stage3Valid = $derived(!!name.length && !!phone.length && !!email.length && !!address.length);
     
     function resetForm() {
         stage = 4;
@@ -74,6 +75,7 @@
             fd.append("name", name);
             fd.append("phone", phone);
             fd.append("email", email);
+            fd.append("address", address);
             fd.append("company", company);
 
             const res = await fetch(`${base}send-offer/`, {
@@ -306,6 +308,15 @@
                         placeholder={m.stage3EmailPlaceholder()}
                         type="email"
                         handleInput={(val) => email = val} />
+                <div class="wide">
+                    <Field label={m.stage3Address()} 
+                        name="address" 
+                        value={address} 
+                        required={true}
+                        placeholder={m.stage3AddressPlaceholder()}
+                        type="text"
+                        handleInput={(val) => address = val} />
+                </div>
                 <Field label={m.stage3Company()} 
                         name="company" 
                         value={company} 
@@ -313,17 +324,22 @@
                         placeholder={m.stage3CompanyPlaceholder()}
                         type="text"
                         handleInput={(val) => company = val} />
+                <div class="submit">
+                    <Button 
+                        text={m.submit()}
+                        style="default"
+                        size="small"
+                        type="submit"
+                        disabled={!stage1Valid || !stage2Valid || !stage3Valid || loading}
+                        onClick={(e:SubmitEvent) => handleSubmit(e)} />
+                    <ul class="sh-list">
+                        <li><p class="submit__text">{@html String(m.sh1()).replace('[city]', page.data.currentCitySlug)}</p></li>
+                        <li><p class="submit__text">{@html m.sh2()}</p></li>
+                        <li><p class="submit__text">{@html m.sh3()}</p></li>
+                    </ul>
+                </div>
             </div>
-            <div class="submit">
-                <Button 
-                    text={m.submit()}
-                    style="default"
-                    size="small"
-                    type="submit"
-                    disabled={!stage1Valid || !stage2Valid || !stage3Valid || loading}
-                    onClick={(e:SubmitEvent) => handleSubmit(e)} />
-                <p class="submit__text">{@html m.stage3Footer()}</p>
-            </div>
+            
         {:else if stage === 4}
             <div class="success gr">
                 <div class="success-icon">
@@ -600,8 +616,18 @@
 
     .st3-fields {
         display: grid;
-        grid-template-columns: repeat(4, minmax(0, 1fr));
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        align-items: flex-start;
         column-gap: var(--s-h-100);
+        row-gap: var(--s-v-500);
+    }
+
+    .sh-list {
+        list-style: none;
+        display: grid;
+        grid-template-columns: minmax(0, 1fr);
+        row-gap: 10px;
+        margin-top: var(--s-v-250);
     }
 
     .submit {
@@ -611,9 +637,10 @@
     .submit__text {
         font-size: var(--p-xs);
         line-height: 1;
-        margin-top: var(--s-v-250);
-        max-width: 270px;
-        opacity: 0.7;
+    }
+
+    :global(.sh-list a) {
+        text-decoration: underline;
     }
 
     .success {
@@ -657,6 +684,17 @@
         .st3-fields {
             grid-template-columns: repeat(2, minmax(0, 1fr));
             row-gap: var(--s-v-500);
+        }
+
+        .wide {
+            grid-column: 1 / -1;
+            order: 1;
+        }
+
+        .submit {
+            margin-top: 0;
+            grid-column: 1 / -1;
+            order: 2;
         }
     }
 
