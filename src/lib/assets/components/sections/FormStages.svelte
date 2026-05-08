@@ -435,7 +435,7 @@
         display: flex;
         flex-flow: column nowrap;
         isolation: isolate;
-        padding-block: var(--s-v-700);
+        padding-block: calc(var(--s-v-700) + var(--s-v-200));
     }
 
     .tabs::after {
@@ -444,7 +444,7 @@
         position: absolute;
         left: -1000px;
         right: -1000px;
-        top: calc(var(--s-v-200) * (-1));
+        top: 0;
         bottom: -1000px;
         background-color: #FAFAFA;
         z-index: -1;
