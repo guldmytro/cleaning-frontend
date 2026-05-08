@@ -525,6 +525,10 @@
         border: none;
     }
 
+    .sep:last-child {
+        display: none;
+    }
+
     .checkboxes {
         display: none;
         padding-top: var(--s-v-400);
