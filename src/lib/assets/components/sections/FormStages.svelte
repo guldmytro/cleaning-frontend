@@ -224,13 +224,15 @@
                                         </span>
                                     </span>
                                 </button>
-                                <div class="checkboxes" class:active={activeTab === i}>
-                                    {#each category.services as service (service.short_title)}
-                                        <label class="label">
-                                            <input class="checkbox" type="checkbox" name="services" value={service.short_title} bind:group={services}>
-                                            <span class="label__text">{service.short_title}</span>
-                                        </label>
-                                    {/each}
+                                <div class="checkboxes-wrapper" class:active={activeTab === i}>
+                                    <div class="checkboxes">
+                                        {#each category.services as service (service.short_title)}
+                                            <label class="label">
+                                                <input class="checkbox" type="checkbox" name="services" value={service.short_title} bind:group={services}>
+                                                <span class="label__text">{service.short_title}</span>
+                                            </label>
+                                        {/each}
+                                    </div>
                                 </div>
                             </div>
                             <hr class="sep">
@@ -521,15 +523,22 @@
         display: none;
     }
 
-    .checkboxes {
-        display: none;
-        padding-top: var(--s-v-400);
-        gap: 12px;
+    .checkboxes-wrapper {
+        display: grid;
+        grid-template-rows: 0fr;
+        transition: grid-template-rows 0.2s ease;
     }
 
-    .checkboxes.active {
+    .checkboxes-wrapper.active {
+        grid-template-rows: 1fr;
+    }
+
+    .checkboxes {
         display: flex;
         flex-wrap: wrap;
+        padding-top: var(--s-v-400);
+        gap: 12px;
+        overflow: hidden;
     }
 
     .checkbox {
