@@ -233,6 +233,7 @@
                                     {/each}
                                 </div>
                             </div>
+                            <hr class="sep">
                         {/if}
                     {/each}
                 </div>
@@ -438,13 +439,22 @@
         width: 100%;
         display: grid;
         grid-template-columns: minmax(0, 1fr);
-        padding-bottom: var(--s-v-700);
+        padding-block: var(--s-v-700);
+    }
+
+    .tab-group:first-child {
+        padding-bottom: 0;
+    }
+
+    .tab-group:last-child {
+        padding-top: 0;
     }
 
     .tab {
         width: 100%;
         display: flex;
         justify-content: space-between;
+        align-items: baseline;
         padding: 0;
         row-gap: var(--s-v-100);
         border: none;
@@ -494,14 +504,25 @@
         display: flex;
         justify-content: center;
         align-items: center;
+        transition: transform 200ms ease;
     }
 
     .arw-inner {
         width: 8px;
     }
 
-    .tab.active {
+    .active .arw {
+        transform: rotate(-180deg);
+    }
 
+    .sep {
+        display: block;
+        width: 100%;
+        padding: 0;
+        margin-block: var(--s-v-700);
+        height: 1px;
+        background-color: #D9D9D9;
+        border: none;
     }
 
     .checkboxes {
