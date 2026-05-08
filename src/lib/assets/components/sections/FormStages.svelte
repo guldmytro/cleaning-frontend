@@ -582,7 +582,7 @@
 
     .label {
         display: flex;
-        gap: 12px;
+        gap: 8px;
         cursor: pointer;
     }
 
