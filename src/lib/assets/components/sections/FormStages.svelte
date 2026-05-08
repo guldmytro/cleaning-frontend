@@ -429,23 +429,9 @@
     .tabs {
         position: relative;
         width: 100%;
-        overflow-x: auto;
         display: flex;
-        flex-flow: row nowrap;
+        flex-flow: column nowrap;
         isolation: isolate;
-    }
-
-    .tabs::after {
-        content: '';
-        display: block;
-        position: absolute;
-        left: 0;
-        bottom: 0;
-        width: 100%;
-        height: 1px;
-        background-color: #D9D9D9;
-        pointer-events: none;
-        z-index: -1;
     }
 
     .tab-group {
