@@ -23,11 +23,6 @@
             <Sprite id="letter" />
         </span>
     </a>
-    <a href="mailto:office@swiss-worx.ch" class="contact-item">
-        <span class="icon-letter">
-            <Sprite id="letter" />
-        </span>
-    </a>
     <a href={localizeHref(`/${page?.data?.currentCitySlug}/contacts#form`)} class="contact-item">
         <span class="contact-item__page-link">{m.getQuote()}</span>
     </a>
