@@ -591,7 +591,7 @@
         font-size: var(--p-s);
         font-weight: 600;
         padding: 16px 20px;
-        border: 2px solid #E8E8E9;
+        border: 1px solid #D9E3E2;
         border-radius: 6px;
         line-height: 1;
         transition: color 180ms ease, border-color 180ms ease;
