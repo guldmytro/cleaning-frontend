@@ -33,6 +33,7 @@
         grid-template-columns: minmax(0, 1fr);
         border-top-left-radius: 6px;
         border-bottom-left-radius: 6px;
+        z-index: 100;
     }
     
     .contact-item {
