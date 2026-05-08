@@ -6,6 +6,7 @@
     import Header from '$lib/assets/components/sections/Header.svelte';
     import Footer from '$lib/assets/components/sections/Footer.svelte';
 	import { localizeUrl } from '$lib/paraglide/runtime';
+    import StickyContacts from '$lib/assets/components/global/StickyContacts.svelte';
 
 	let { children } = $props();
 
@@ -54,6 +55,7 @@
 
 <div class="body-content">
 	<Header cities={page.data.cities} />
+	<StickyContacts />
 	{@render children()}
 </div>
 <Footer cities={page.data.cities} />

@@ -590,7 +590,7 @@
         white-space: nowrap;
         font-size: var(--p-s);
         font-weight: 600;
-        padding: 18px 20px;
+        padding: 16px 20px;
         border: 2px solid #E8E8E9;
         border-radius: 6px;
         line-height: 1;
