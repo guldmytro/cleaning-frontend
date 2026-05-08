@@ -11,8 +11,8 @@
     const socials: Social[] = [
         {
             icon: 'phone',
-            href: 'tel:04150500002',
-            label: '041 505 00 002'
+            href: 'tel:4150500002',
+            label: '41 505 00 002'
         },
         {
             icon: 'letter',
