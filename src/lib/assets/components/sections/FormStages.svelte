@@ -588,7 +588,7 @@
 
     .label__text {
         white-space: nowrap;
-        font-size: var(--p-s);
+        font-size: var(--p-xs);
         font-weight: 600;
         padding: 16px 20px;
         border: 1px solid #D9E3E2;
