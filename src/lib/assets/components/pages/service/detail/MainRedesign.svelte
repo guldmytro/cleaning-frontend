@@ -5,6 +5,8 @@
     import Paragraph from "$lib/assets/components/ui/Paragraph.svelte";
     import Rate from "$lib/assets/components/ui/Rate.svelte";
     import { m } from "$lib/paraglide/messages";
+    import { page } from "$app/state";
+    import { localizeHref } from "$lib/paraglide/runtime";
 
     export let title : string;
     export let description: string;
@@ -20,7 +22,7 @@
                         <Headline {title} level={1} levelStyle={2} />
                         <Paragraph text={description} size="p" weight="400" />
                     </div>
-                    <Button href="#form" size="default" style="default" text={m.getQuote()} />
+                    <Button href={localizeHref(`/${page?.data?.currentCitySlug}/contacts#form`)} size="default" style="default" text={m.getQuote()} />
                 </div>
                 <div class="section-footer">
                     <Rate title="4.8" />

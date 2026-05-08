@@ -1,5 +1,6 @@
 <script lang="ts">
     import { page } from "$app/state";
+    import { localizeHref } from "$lib/paraglide/runtime";
     import Container from "$lib/assets/components/global/Container.svelte";
     import Headline from "$lib/assets/components/ui/Headline.svelte";
     import { normalizeMediaURL } from "$lib/utils";
@@ -21,7 +22,7 @@
                     levelStyle={2}
                 />
                 <Paragraph text={page.data?.currentCityObj.section_description} size="p" weight="400" />
-                <Button href="#form" text={m.getQuote()} size="default" style="default" />
+                <Button href={localizeHref(`/${page?.data?.currentCitySlug}/contacts#form`)} text={m.getQuote()} size="default" style="default" />
             </div>
             <div
             class="img-wrapper"
