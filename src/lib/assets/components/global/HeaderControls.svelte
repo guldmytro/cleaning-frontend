@@ -70,12 +70,12 @@
         {mobile} />
 
     <div class="group">
-        <a href="tel:4150500002" class="tel">
+        <a href="tel:+41415050002" class="tel">
             <span class="tel__icon">
                 <Sprite id="phone" />
             </span>
             <span class="tel__text">
-                41 505 00 002
+                041 505 00 02
             </span>
         </a>
         <button type="button" class="locale" onclick={() => switchLang(oppositeLocale)}>

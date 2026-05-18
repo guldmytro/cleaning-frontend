@@ -23,7 +23,7 @@
                     <p>
                         Email: office@swiss-worx.ch
                         <br>
-                        Support: 41 505 00 002
+                        Support: 041 505 00 02
                     </p>
                 </div>
                 <div class="box">
@@ -89,7 +89,7 @@
                     <p>
                         Email: office@swiss-worx.ch
                         <br>
-                        Support: 41 505 00 002
+                        Support: 041 505 00 02
                     </p>
                 </div>
                 <div class="box">
