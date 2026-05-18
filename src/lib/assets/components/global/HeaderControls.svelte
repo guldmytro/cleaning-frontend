@@ -93,6 +93,7 @@
         justify-content: space-between;
         align-items: center;
         padding-block: 8px;
+        column-gap: 8px;
     }
 
     .group {
