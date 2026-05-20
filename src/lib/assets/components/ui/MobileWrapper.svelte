@@ -58,7 +58,7 @@
     .mobile-wrapper {
         display: none;
         padding-inline: var(--p-container);
-        padding-top: 314px;
+        padding-top: 185px;
         position: fixed;
         top: 0;
         left: 0;
@@ -159,6 +159,15 @@
 
         .mobile-wrapper {
             padding-top: 185px;
+        }
+
+        .submenu {
+            row-gap: 0;
+        }
+
+        .submenu a {
+            display: block;
+            height: 40px;
         }
     }
 </style>
