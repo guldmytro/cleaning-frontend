@@ -226,6 +226,7 @@
                     <div class="checkboxes-wrapper" class:active={i === activeTab}>
                         <div class="checkboxes">
                             <p class="full">{m.stage1Title()}</p>
+                            {activeTab}
                             {#if activeTab > 1}    
                                 {#each category.services as service (service.short_title)}
                                     <label class="label">
