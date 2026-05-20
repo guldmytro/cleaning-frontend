@@ -226,8 +226,7 @@
                     <div class="checkboxes-wrapper" class:active={i === activeTab}>
                         <div class="checkboxes">
                             <p class="full">{m.stage1Title()}</p>
-                            {activeTab}
-                            {#if activeTab > 1}    
+                            {#if activeTab > 0}    
                                 {#each category.services as service (service.short_title)}
                                     <label class="label">
                                         <input class="checkbox" type="checkbox" name="services" value={service.short_title} bind:group={services}>
