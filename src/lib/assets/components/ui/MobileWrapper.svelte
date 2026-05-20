@@ -156,5 +156,9 @@
         .submenu {
             padding-top: 0;
         }
+
+        .mobile-wrapper {
+            padding-top: 185px;
+        }
     }
 </style>
