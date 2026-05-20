@@ -217,30 +217,23 @@
                                             {/if}
                                         </span>
                                     </span>
-                                    <span class="tab-arrow">
-                                        <span class="cnt">{getSelectedCount(category)}/({category.services.length})</span>
-                                        <span class="arw">
-                                            <span class="arw-inner">
-                                                <Sprite id="arrow-down"/>
-                                            </span>
-                                        </span>
-                                    </span>
                                 </button>
-                                <div class="checkboxes-wrapper" class:active={activeTab === i}>
-                                    <div class="checkboxes">
-                                        {#each category.services as service (service.short_title)}
-                                            <label class="label">
-                                                <input class="checkbox" type="checkbox" name="services" value={service.short_title} bind:group={services}>
-                                                <span class="label__text">{service.short_title}</span>
-                                            </label>
-                                        {/each}
-                                    </div>
-                                </div>
                             </div>
-                            <hr class="sep">
                         {/if}
                     {/each}
                 </div>
+                {#each categories as category, i (category.slug)}
+                    <div class="checkboxes-wrapper active">
+                        <div class="checkboxes">
+                            {#each category.services as service (service.short_title)}
+                                <label class="label">
+                                    <input class="checkbox" type="checkbox" name="services" value={service.short_title} bind:group={services}>
+                                    <span class="label__text">{service.short_title}</span>
+                                </label>
+                            {/each}
+                        </div>
+                    </div>
+                {/each}
             {/if}
         {:else if stage === 2}
             <div class="form-content__header gr" style="margin-bottom: var(--s-v-800);">
@@ -373,12 +366,12 @@
 
     .progress {
         height: 10px;
-        background-color: #C6DBF8;
+        background-color: #A4E9DC;
     }
 
     .progress-fill {
         height: 100%;
-        background-color: var(--c-accent);
+        background-color: #19B297;
         transition: width 180ms ease;
         will-change: width;
     }
@@ -386,6 +379,7 @@
     .stage {
         line-height: 1.1;
         font-weight: 600;
+        color: var(--c-white);
     }
 
     .btn-arrow {
@@ -410,8 +404,8 @@
     }
 
     .btn-arrow_next {
-        background-color: var(--c-accent);
-        color: var(--c-white);
+        color: var(--c-accent);
+        background-color: var(--c-white);
     }
     
     .btn-arrow__img {
@@ -423,7 +417,7 @@
         display: flex;
         align-items: center;
         padding: var(--s-v-400) var(--s-h-500);
-        background-color: var(--c-white);
+        background-color: #00D4AD;
         box-shadow: 0 20px 115px 0 rgba(21, 25, 31, 0.04);
     }
 
@@ -434,6 +428,8 @@
 
     .form-content {
         padding: var(--s-v-1100) var(--s-h-500);
+        background-image: linear-gradient(to right, #16CBAA, #03A98A);
+        color: var(--c-white);
     }
 
     .p-wrapper {
@@ -452,18 +448,6 @@
         flex-flow: column nowrap;
         isolation: isolate;
         padding-block: calc(var(--s-v-700) + var(--s-v-200));
-    }
-
-    .tabs::after {
-        content: '';
-        display: block;
-        position: absolute;
-        left: -1000px;
-        right: -1000px;
-        top: 0;
-        bottom: -1000px;
-        background-color: #FAFAFA;
-        z-index: -1;
     }
 
     .tab-group {
