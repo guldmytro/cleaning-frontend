@@ -602,7 +602,7 @@
 
     .full {
         grid-column: 1 / -1;
-        left: 1.2;
+        font-weight: 1.2;
         font-weight: 400;
         font-size: var(--p);
     }
@@ -701,7 +701,7 @@
 
     @media (max-width: 834px) {
         .tab {
-            padding-inline: clamp(12px, 3vw, 20px);
+            padding: 20px;
         }
 
         .checkboxes {
@@ -739,6 +739,10 @@
             grid-template-columns: repeat(2, minmax(0, 1fr));
         }
 
+        .stage-1 .bottom-controls {
+            grid-template-columns: minmax(0, 1fr);
+        }
+
         :global(.bottom-controls button) {
             width: 100% !important;
             text-align: center;
@@ -746,6 +750,29 @@
 
         .checkboxes {
             grid-template-columns: repeat(1, minmax(0, 1fr));
+        }
+
+        .headline {
+            font-size: 12px;
+        }
+
+        .p {
+            font-size: 11px;
+        }
+        .full {
+            font-size: 12px;
+        }
+
+        .form-content {
+            padding-inline: 20px;
+        }
+
+        .form {
+            margin-inline: calc((-1) * var(--p-container));
+        }
+
+        .form-header__row {
+            padding-inline: 20px;
         }
     }
 </style>
