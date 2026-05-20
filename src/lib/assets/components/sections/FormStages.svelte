@@ -181,7 +181,7 @@
     {/if}
     <div class="form-content">
         {#if stage === 1}
-            <div class="form-content__header gr" style="margin-bottom: var(--s-v-800);">
+            <div class="form-content__header gr" style="margin-bottom: var(--s-v-700);">
                 <Headline title={m.stage1Title()} level={3} levelStyle={4} />
                 <div class="p-wrapper">
                     <Paragraph 
@@ -225,6 +225,7 @@
                 {#each categories as category, i (category.slug)}
                     <div class="checkboxes-wrapper" class:active={i === activeTab}>
                         <div class="checkboxes">
+                            <p class="full">{m.stage1Title()}</p>
                             {#each category.services as service (service.short_title)}
                                 <label class="label">
                                     <input class="checkbox" type="checkbox" name="services" value={service.short_title} bind:group={services}>
@@ -241,7 +242,7 @@
                 {/each}
             {/if}
         {:else if stage === 2}
-            <div class="form-content__header gr" style="margin-bottom: var(--s-v-800);">
+            <div class="form-content__header gr" style="margin-bottom: var(--s-v-700);">
                 <Headline title={m.stage2Title()} level={3} levelStyle={4} />
                 <div class="p-wrapper">
                     <Paragraph 
@@ -432,7 +433,7 @@
     }
 
     .form-content {
-        padding: var(--s-v-1100) var(--s-h-500);
+        padding: var(--s-v-900) var(--s-h-500);
         background-image: linear-gradient(to right, #16CBAA, #03A98A);
         color: var(--c-white);
     }
@@ -523,16 +524,18 @@
     }
 
     .checkboxes-wrapper {
-        display: grid;
+        display: none;
         grid-template-rows: 0fr;
         transition: grid-template-rows 0.2s ease;
     }
 
     .checkboxes-wrapper.active {
+        display: grid;
         grid-template-rows: 1fr;
     }
 
     .checkboxes {
+        padding-top: var(--s-v-700);
         overflow: hidden;
         display: grid;
         grid-template-columns: repeat(4, minmax(0, 1fr));
@@ -586,6 +589,13 @@
         display: grid;
         grid-template-columns: repeat(2, minmax(0, 1fr));
         column-gap: var(--s-h-200);
+    }
+
+    .full {
+        grid-column: 1 / -1;
+        left: 1.2;
+        font-weight: 400;
+        font-size: var(--p);
     }
 
     .col {
@@ -649,12 +659,8 @@
         display: flex;
         flex-flow: row nowrap;
         justify-content: flex-end;
-        padding-top: var(--s-v-800);
+        padding-top: var(--s-v-700);
         column-gap: var(--s-h-50);
-    }
-
-    .stage-1 .bottom-controls {
-        padding-top: var(--s-v-300);
     }
 
     @media (max-width: 991px) {
