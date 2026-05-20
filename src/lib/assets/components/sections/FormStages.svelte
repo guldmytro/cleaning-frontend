@@ -228,6 +228,11 @@
                             {#each category.services as service (service.short_title)}
                                 <label class="label">
                                     <input class="checkbox" type="checkbox" name="services" value={service.short_title} bind:group={services}>
+                                    <span class="checkbox-box">
+                                        <span class="checked-box__icon">
+                                            <Sprite id="checked2" />
+                                        </span>
+                                    </span>
                                     <span class="label__text">{service.short_title}</span>
                                 </label>
                             {/each}
@@ -528,45 +533,52 @@
     }
 
     .checkboxes {
-        display: flex;
-        flex-wrap: wrap;
-        padding-top: var(--s-v-400);
-        gap: 12px;
-        overflow: hidden;
-    }
-
-    .checkbox {
-        appearance: none;
-        display: block;
-        width: 0;
-        height: 0;
-        visibility: hidden;
-        z-index: -1;
-        position: absolute;
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
     }
 
     .label {
         display: flex;
-        gap: 8px;
+        align-items: center;
+        column-gap: 12px;
+        padding-block: 13px;
+        padding-right: 10px;
         cursor: pointer;
     }
 
-    .label__text {
-        white-space: nowrap;
-        font-size: var(--p-xs);
-        font-weight: 600;
-        padding: 16px 20px;
-        border: 1px solid #D9E3E2;
-        border-radius: 6px;
-        line-height: 1;
-        transition: color 180ms ease, border-color 180ms ease;
-        will-change: color, border-color;
+    .checkbox {
+        position: absolute;
+        z-index: -1;
+        opacity: 0;
+        appearance: none;
+    }    
+
+    .checkbox-box {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 19px;
+        height: 19px;
         background-color: var(--c-white);
+        border-radius: 3px;
+        color: var(--c-accent);
     }
 
-    .checkbox:checked + .label__text {
-        color: var(--c-accent);
-        border-color: var(--c-accent);
+    .checked-box__icon {
+        opacity: 0;
+        width: 7px;
+        height: 7px;
+    }
+
+    :checked + .checkbox-box .checked-box__icon {
+        opacity: 1;
+    }
+
+    .label__text {
+        font-weight: 600;
+        left: 1;
+        font-size: 12px;
+        color: white;
     }
 
     .st2-fields {
