@@ -33,7 +33,7 @@
                                 <ul class="submenu gr" transition:slide={{duration: 180}}>
                                     {#each category.services as service (service.slug)}
                                         <li class="submenu-item">
-                                            <a href={localizeHref(`/${page.data?.currentCitySlug}/services/${category.slug}/${service.slug}`)}>{service.short_title}</a>
+                                            <a class:active={String(page.url.pathname).endsWith(service.slug)} href={localizeHref(`/${page.data?.currentCitySlug}/services/${category.slug}/${service.slug}`)}>{service.short_title}</a>
                                         </li>
                                     {/each}
                                 </ul>
@@ -167,8 +167,17 @@
         }
 
         .submenu a {
-            display: block;
+            display: flex;
+            width: 100%;
+            align-items: center;
+            justify-content: flex-start;
             height: 40px;
+            font-size: var(--p-xs);
+        }
+
+        .submenu .active {
+            text-decoration: underline;
+            font-weight: 600;
         }
     }
 </style>
