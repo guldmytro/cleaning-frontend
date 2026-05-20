@@ -223,7 +223,7 @@
                     {/each}
                 </div>
                 {#each categories as category, i (category.slug)}
-                    <div class="checkboxes-wrapper active">
+                    <div class="checkboxes-wrapper" class:active={i === activeTab}>
                         <div class="checkboxes">
                             {#each category.services as service (service.short_title)}
                                 <label class="label">
