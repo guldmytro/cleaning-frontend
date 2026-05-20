@@ -226,17 +226,95 @@
                     <div class="checkboxes-wrapper" class:active={i === activeTab}>
                         <div class="checkboxes">
                             <p class="full">{m.stage1Title()}</p>
-                            {#each category.services as service (service.short_title)}
-                                <label class="label">
-                                    <input class="checkbox" type="checkbox" name="services" value={service.short_title} bind:group={services}>
-                                    <span class="checkbox-box">
-                                        <span class="checked-box__icon">
-                                            <Sprite id="checked2" />
+                            {#if activeTab > 1}    
+                                {#each category.services as service (service.short_title)}
+                                    <label class="label">
+                                        <input class="checkbox" type="checkbox" name="services" value={service.short_title} bind:group={services}>
+                                        <span class="checkbox-box">
+                                            <span class="checked-box__icon">
+                                                <Sprite id="checked2" />
+                                            </span>
                                         </span>
-                                    </span>
-                                    <span class="label__text">{service.short_title}</span>
-                                </label>
-                            {/each}
+                                        <span class="label__text">{service.short_title}</span>
+                                    </label>
+                                {/each}
+                            {:else}
+                                {#if getLocale() === 'de'}
+                                    <label class="label">
+                                        <input class="checkbox" type="checkbox" name="services" value="Büroreinigung" bind:group={services}>
+                                        <span class="checkbox-box">
+                                            <span class="checked-box__icon">
+                                                <Sprite id="checked2" />
+                                            </span>
+                                        </span>
+                                        <span class="label__text">Büroreinigung</span>
+                                    </label>
+                                    <label class="label">
+                                        <input class="checkbox" type="checkbox" name="services" value="Praxisreinigung" bind:group={services}>
+                                        <span class="checkbox-box">
+                                            <span class="checked-box__icon">
+                                                <Sprite id="checked2" />
+                                            </span>
+                                        </span>
+                                        <span class="label__text">Praxisreinigung</span>
+                                    </label>
+                                    <label class="label">
+                                        <input class="checkbox" type="checkbox" name="services" value="Gewerbereinigung" bind:group={services}>
+                                        <span class="checkbox-box">
+                                            <span class="checked-box__icon">
+                                                <Sprite id="checked2" />
+                                            </span>
+                                        </span>
+                                        <span class="label__text">Gewerbereinigung</span>
+                                    </label>
+                                    <label class="label">
+                                        <input class="checkbox" type="checkbox" name="services" value="Ladenlokal & Retail" bind:group={services}>
+                                        <span class="checkbox-box">
+                                            <span class="checked-box__icon">
+                                                <Sprite id="checked2" />
+                                            </span>
+                                        </span>
+                                        <span class="label__text">Ladenlokal & Retail</span>
+                                    </label>
+                                {:else}
+                                    <label class="label">
+                                        <input class="checkbox" type="checkbox" name="services" value="Office Cleaning" bind:group={services}>
+                                        <span class="checkbox-box">
+                                            <span class="checked-box__icon">
+                                                <Sprite id="checked2" />
+                                            </span>
+                                        </span>
+                                        <span class="label__text">Office Cleaning</span>
+                                    </label>
+                                    <label class="label">
+                                        <input class="checkbox" type="checkbox" name="services" value="Medical Practice Cleaning" bind:group={services}>
+                                        <span class="checkbox-box">
+                                            <span class="checked-box__icon">
+                                                <Sprite id="checked2" />
+                                            </span>
+                                        </span>
+                                        <span class="label__text">Medical Practice Cleaning</span>
+                                    </label>
+                                    <label class="label">
+                                        <input class="checkbox" type="checkbox" name="services" value="Commercial Cleaning" bind:group={services}>
+                                        <span class="checkbox-box">
+                                            <span class="checked-box__icon">
+                                                <Sprite id="checked2" />
+                                            </span>
+                                        </span>
+                                        <span class="label__text">Commercial Cleaning</span>
+                                    </label>
+                                    <label class="label">
+                                        <input class="checkbox" type="checkbox" name="services" value="Retail & Shop Cleaning" bind:group={services}>
+                                        <span class="checkbox-box">
+                                            <span class="checked-box__icon">
+                                                <Sprite id="checked2" />
+                                            </span>
+                                        </span>
+                                        <span class="label__text">Retail & Shop Cleaning</span>
+                                    </label>
+                                {/if}
+                            {/if}
                         </div>
                     </div>
                 {/each}
