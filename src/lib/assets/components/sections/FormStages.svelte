@@ -257,10 +257,10 @@
                     <Field label={m.worksLabel()} 
                         name="square" 
                         value={square} 
-                        required={true}
+                        required={false}
                         looksLikeApieceOfShit={true}
                         placeholder={m.worksPlaceholder()}
-                        {helpText}
+                        helpText={m.rs()}
                         type="text"
                         rows={8}
                         handleInput={(val) => square = val} />
@@ -566,6 +566,7 @@
     }    
 
     .checkbox-box {
+        flex-shrink: 0;
         display: flex;
         justify-content: center;
         align-items: center;
@@ -691,6 +692,10 @@
             margin-top: 0;
             grid-column: 1 / -1;
             order: 2;
+        }
+
+        .checkboxes {
+            grid-template-columns: repeat(3, minmax(0, 1fr));
         }
     }
 

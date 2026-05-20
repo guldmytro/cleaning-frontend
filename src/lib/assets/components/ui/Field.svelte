@@ -15,7 +15,14 @@
 
 <div class="label-wrapper">
     <label class="label">
-        <span class="label__text">{label}{#if required}&nbsp;*{/if}</span>
+        <span class="group">
+            <span class="label__text">{label}{#if required}&nbsp;*{/if}</span>
+            {#if helpText}
+                <span class="label-wrapper-text">
+                    <Paragraph text={helpText} size="p-xs" weight="400" />
+                </span>
+            {/if}
+        </span>
         {#if rows}
             <textarea
                 class="label__field" 
@@ -35,14 +42,15 @@
                 oninput={() => handleInput(value)}>
         {/if}
     </label>
-    {#if helpText}
-        <div class="label-wrapper-text">
-            <Paragraph text={helpText} size="p-xs" weight="400" />
-        </div>
-    {/if}
 </div>
 
 <style>
+    .group {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr);
+        row-gap: 4px;
+    }
+    
     .label {
         display: grid;
         grid-template-columns: minmax(0, 1fr);
