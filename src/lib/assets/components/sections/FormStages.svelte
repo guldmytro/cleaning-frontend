@@ -21,7 +21,7 @@
     const categories = page.data?.categories;
 
     let stage = $state<1 | 2 | 3 | 4>(1);
-    let activeTab = $state<number>(0);
+    let activeTab = $state<number>(-1);
     let services = $state<string[]>([]);
     let square = $state('');
     let requirements = $state('');
@@ -533,6 +533,7 @@
     }
 
     .checkboxes {
+        overflow: hidden;
         display: grid;
         grid-template-columns: repeat(4, minmax(0, 1fr));
     }
