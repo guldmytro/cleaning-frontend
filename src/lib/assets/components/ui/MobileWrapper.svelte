@@ -163,6 +163,7 @@
 
         .submenu {
             row-gap: 0;
+            padding-top: 4px;
         }
 
         .submenu a {
