@@ -444,10 +444,9 @@
     .tabs {
         position: relative;
         width: 100%;
-        display: flex;
-        flex-flow: column nowrap;
-        isolation: isolate;
-        padding-block: calc(var(--s-v-700) + var(--s-v-200));
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        column-gap: 10px;
     }
 
     .tab-group {
@@ -457,14 +456,26 @@
     }
 
     .tab {
-        width: 100%;
-        display: flex;
-        justify-content: space-between;
-        align-items: baseline;
-        padding: 0;
-        row-gap: var(--s-v-100);
-        border: none;
+        border: 1px solid var(--c-white);
         background-color: transparent;
+        padding: 40px;
+        display: grid;
+        grid-template-columns: minmax(0, 1fr);
+        row-gap: 4px;
+        color: var(--c-white);
+        border-radius: 4px;
+    }
+
+    .tab.active {
+        background-color: var(--c-white);
+        color: var(--c-text);
+    }
+
+    .headline {
+        font-family: 'Inter';
+        font-size: 16px;
+        line-height: 1.1;
+        font-weight: 600;
     }
 
     .tab-col {
@@ -473,14 +484,6 @@
         align-items: flex-start;
         text-align: left;
         row-gap: var(--s-v-100);
-    }
-
-    .headline {
-        font-size: var(--h5);
-        font-weight: 600;
-        line-height: 1.1;
-        font-family: 'Inter';
-        color: var(--c-text);
     }
 
     .p {
@@ -496,30 +499,8 @@
         column-gap: 4px;
     }
 
-    .tab-arrow .cnt {
-        font-size: var(--p-xs);
-        font-weight: 600;
-        white-space: nowrap;
-        line-height: 1;
-        font-family: 'Inter';
-    }
-
-    .tab-arrow .arw {
-        width: 20px;
-        height: 20px;
-        flex-shrink: 0;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        transition: transform 200ms ease;
-    }
-
     .arw-inner {
         width: 8px;
-    }
-
-    .active .arw {
-        transform: rotate(-180deg);
     }
 
     .sep {
