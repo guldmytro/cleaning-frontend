@@ -258,6 +258,7 @@
                         name="square" 
                         value={square} 
                         required={true}
+                        looksLikeApieceOfShit={true}
                         placeholder={m.worksPlaceholder()}
                         {helpText}
                         type="text"
@@ -267,6 +268,7 @@
                         name="square" 
                         value={requirements} 
                         required={false}
+                        looksLikeApieceOfShit={true}
                         placeholder={m.stage2RequirementsPlaceholder()}
                         type="text"
                         rows={8}
@@ -290,6 +292,7 @@
                         name="name" 
                         value={name} 
                         required={true}
+                        looksLikeApieceOfShit={true}
                         placeholder={m.namePlaceholder()}
                         type="text"
                         handleInput={(val) => name = val} />
@@ -297,6 +300,7 @@
                         name="square" 
                         value={phone} 
                         required={true}
+                        looksLikeApieceOfShit={true}
                         placeholder="+41 79 123 45 67"
                         type="tel"
                         handleInput={(val) => phone = val} />
@@ -304,6 +308,7 @@
                         name="email" 
                         value={email} 
                         required={true}
+                        looksLikeApieceOfShit={true}
                         placeholder={m.stage3EmailPlaceholder()}
                         type="email"
                         handleInput={(val) => email = val} />
@@ -312,6 +317,7 @@
                         name="address" 
                         value={address} 
                         required={true}
+                        looksLikeApieceOfShit={true}
                         placeholder={m.stage3AddressPlaceholder()}
                         type="text"
                         handleInput={(val) => address = val} />
@@ -320,6 +326,7 @@
                         name="company" 
                         value={company} 
                         required={false}
+                        looksLikeApieceOfShit={true}
                         placeholder={m.stage3CompanyPlaceholder()}
                         type="text"
                         handleInput={(val) => company = val} />
@@ -353,10 +360,10 @@
         {#if stage < 3}
             <div class="bottom-controls">
                 {#if stage > 1 && stage !== 4}
-                    <Button text={m.formPrev()} size="small" style="ghost" type="button" onClick={() => stage--} />
+                    <Button text={m.formPrev()} size="small" style="ghost" invert={true} type="button" onClick={() => stage--} />
                 {/if}
                 {#if stage < 3}
-                    <Button text={m.formNext()} size="small" style="default" type="button" onClick={() => stage++} disabled={(stage === 1 && !stage1Valid) || (stage === 2 && !stage2Valid) || stage === 3} />
+                    <Button text={m.formNext()} size="small" style="default" white={true} type="button" onClick={() => stage++} disabled={(stage === 1 && !stage1Valid) || (stage === 2 && !stage2Valid) || stage === 3} />
                 {/if}
             </div>
         {/if}
@@ -394,7 +401,7 @@
         align-items: center;
         width: 45px;
         height: 45px;
-        border: 2px solid var(--c-accent);
+        border: 2px solid var(--c-white);
         border-radius: 6px;
         transition: opacity 200ms ease;
     }
@@ -405,7 +412,8 @@
     
     .btn-arrow_prev {
         background-color: transparent;
-        color: var(--c-accent);
+        color: var(--c-white);
+        border: 2px solid white;
         transform: scaleX(-1);
     }
 

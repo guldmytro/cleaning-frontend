@@ -8,6 +8,7 @@
     export let onClick: any = null;
     export let disabled: boolean = false;
     export let white: boolean = false;
+    export let invert: boolean = false;
 
 </script>
 
@@ -16,7 +17,7 @@
         {text}
     </a>
 {:else}
-    <button {type} class="btn size-{size} style-{style}" class:full onclick={(e: any) => onClick ? onClick(e) : null} {disabled}>
+    <button {type} class="btn size-{size} style-{style}" class:invert class:white class:full onclick={(e: any) => onClick ? onClick(e) : null} {disabled}>
         {text}
     </button>
 {/if}
@@ -38,7 +39,7 @@
     }
     
     .size-small {
-        padding: 15px 20px;
+        padding: 20px 24px;
         font-size: 12px;
     }
 
@@ -82,12 +83,23 @@
 
     .white {
         background-color: var(--c-white);
-        color: var(--c-text);
+        color: #03BD9B;
         border-color: var(--c-white);
     }
 
     .white:hover {
         background-color: var(--c-white);
-        color: var(--c-text);
+        color: #03BD9B;
+    }
+
+    .invert {
+        color: var(--c-white);
+        border-color: var(--c-white);
+    }
+
+    .invert:hover {
+        color: var(--c-white);
+        border-color: var(--c-white);
+        background-color: transparent;
     }
 </style>

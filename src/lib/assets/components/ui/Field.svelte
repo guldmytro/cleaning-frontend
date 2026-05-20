@@ -10,6 +10,7 @@
     export let handleInput: (value: string) => void;
     export let rows = 0;
     export let helpText: string | null = null;
+    export let looksLikeApieceOfShit: boolean = false;
 </script>
 
 <div class="label-wrapper">
@@ -22,12 +23,14 @@
                 {placeholder} 
                 {required}
                 {rows}
+                class:looksLikeApieceOfShit
                 bind:value={value}
                 oninput={() => handleInput(value)}></textarea>
         {:else}
             <input class="label__field" 
                 {name} {type} {placeholder}
                 {required}
+                class:looksLikeApieceOfShit
                 bind:value={value}
                 oninput={() => handleInput(value)}>
         {/if}
@@ -77,5 +80,14 @@
 
     .label-wrapper-text {
         opacity: 0.7;
+    }
+
+    .looksLikeApieceOfShit {
+        background-color: var(--c-accent);
+        color: white;
+    }
+
+    .looksLikeApieceOfShit::placeholder {
+        color: white;
     }
 </style>

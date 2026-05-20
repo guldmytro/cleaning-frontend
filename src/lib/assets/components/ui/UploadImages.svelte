@@ -74,7 +74,7 @@
 		/>
 		<p class="title">{@html m.stage2PhotoTitle()}</p>
 		<p class="subtitle">{m.stage2PhotoSubtitle()}</p>
-        <Button type="button" text="Browse" size="extra-small" style="ghost" onClick={() => openDialog()} />
+        <Button type="button" text="Browse" size="extra-small" style="ghost" invert={true} onClick={() => openDialog()} />
 	</div>
 
 	{#if files.length}
@@ -112,7 +112,7 @@
         flex-direction: column;
         align-items: center;
         justify-content: center;
-        background-color: var(--c-theme);
+        background-color: var(--c-accent);
         flex-grow: 1;
         padding: 10px var(--s-h-300);
         border-radius: 5px;
@@ -124,7 +124,7 @@
         display: block;
         position: absolute;
         inset: 10px;
-        border: 1px dashed #616D76;
+        border: 1px dashed white;
         border-radius: 5px;
         pointer-events: none;
     }
@@ -145,7 +145,7 @@
         font-size: var(--p-xs);
         font-weight: 600;
         line-height: 1;
-        color: #616D76;
+        color: white;
 	}
 
 	.preview {
