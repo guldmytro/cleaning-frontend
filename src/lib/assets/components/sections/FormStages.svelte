@@ -703,6 +703,10 @@
         .tab {
             padding-inline: clamp(12px, 3vw, 20px);
         }
+
+        .checkboxes {
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
     }
 
     @media (max-width: 575px) {
@@ -738,6 +742,10 @@
         :global(.bottom-controls button) {
             width: 100% !important;
             text-align: center;
+        }
+
+        .checkboxes {
+            grid-template-columns: repeat(1, minmax(0, 1fr));
         }
     }
 </style>
