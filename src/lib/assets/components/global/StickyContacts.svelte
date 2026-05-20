@@ -12,19 +12,10 @@
         </span>
     </a>
     <hr class="contact-divider">
-    <a href="tel:+41763947975" class="contact-item">
-        <span class="icon-phone">
-            <Sprite id="phone" />
-        </span>
-    </a>
-    <hr class="contact-divider">
     <a href="mailto:office@swiss-worx.ch" class="contact-item">
         <span class="icon-letter">
             <Sprite id="letter" />
         </span>
-    </a>
-    <a href={localizeHref(`/${page?.data?.currentCitySlug}/contacts#form`)} class="contact-item">
-        <span class="contact-item__page-link">{m.getQuote()}</span>
     </a>
 </div>
 
@@ -54,10 +45,6 @@
         width: 22px;
     }
 
-    .icon-phone {
-        width: 18px;
-    }
-
     .icon-letter {
         width: 20px;
     }
@@ -72,58 +59,9 @@
         margin: 0 auto;
     }
 
-    .contact-item:has(.contact-item__page-link) {
-        display: none;
-    }
-
     @media (max-width: 575px) {
-        .contact-block {
-            grid-template-columns: repeat(3, minmax(0, 1fr));
-            left: 0;
-            bottom: 0;
-            border-radius: 0;
-        }
-
-        .contact-divider {
-            display: none;
-        }
-
-        .contact-item {
-            position: relative;
-            width: 100%;
-            height: 60px;
-            background-color: var(--c-white);
-            color: var(--c-accent);
-        }
-
-        .contact-item:first-child::after {
-            content: '';
-            display: block;
-            width: 1px;
-            position: absolute;
-            top: 0;
-            bottom: 0;
-            left: 100%;
-            background-color: #D8E9E7;
-            z-index: 2;
-        }
-
-        .contact-item:has(.icon-letter) {
-            display: none;
-        }
-
-        .contact-item:has(.contact-item__page-link) {
-            display: flex;
-            text-align: center;
-            justify-content: center;
-            align-items: center;
-            background-color: var(--c-accent);
-            color: var(--c-white);
-            font-size: 10px;
-            font-weight: 600;
-            text-transform: uppercase;
-            line-height: 1;
-            font-family: 'Inter';
+        .contact-block { 
+            bottom: 82px;
         }
     }
 </style>
