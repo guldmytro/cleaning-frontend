@@ -125,13 +125,6 @@
             padding-inline: var(--p-container);
         }
 
-        .mobile-controls {
-            margin-top: var(--s-v-1100);
-            display: flex;
-            column-gap: 8px;
-            padding-bottom: 200px;
-        }
-
         .mobile-content {
             max-height: calc(100svh - 350px);
             overflow-y: auto;
@@ -139,25 +132,29 @@
     }
 
     @media (max-width: 767px) {
-        .menu {
-            row-gap: var(--s-v-600);
+        .submenu {
+            grid-template-columns: minmax(0, 1fr);
         }
+    }
 
+
+    @media (max-width: 575px) {
+        .menu-item__link,
         .menu-item__span {
-            display: none;
-        }
-
-        .menu-item__link.m {
             font-size: var(--h5);
-            display: block;
+            height: 44px;
         }
 
-        .menu-item__link {
-            font-size: var(--h5);
+        .menu-item__icon {
+            width: 10px;
         }
 
-        .mobile-wrapper {
-            padding-top: 260px;
+        .menu {
+            gap: 20px;
+        }
+
+        .submenu {
+            padding-top: 0;
         }
     }
 </style>
