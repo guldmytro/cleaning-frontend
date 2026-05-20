@@ -605,6 +605,7 @@
         font-weight: 1.2;
         font-weight: 400;
         font-size: var(--p);
+        padding-bottom: var(--s-v-250);
     }
 
     .col {
