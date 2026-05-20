@@ -34,7 +34,7 @@
 
 
     let stage1Valid = $derived(!!services.length);
-    let stage2Valid = $derived(!!square.length);
+    let stage2Valid = true;
     let stage3Valid = $derived(!!name.length && !!phone.length && !!email.length && !!address.length);
     
     function resetForm() {
@@ -336,6 +336,7 @@
                         style="default"
                         size="small"
                         type="submit"
+                        white={true}
                         disabled={!stage1Valid || !stage2Valid || !stage3Valid || loading}
                         onClick={(e:SubmitEvent) => handleSubmit(e)} />
                     <ul class="sh-list">
@@ -643,6 +644,7 @@
 
     :global(.sh-list a) {
         text-decoration: underline;
+        color: var(--c-white);
     }
 
     .success {
