@@ -116,6 +116,7 @@
         const currentService = page?.data?.categories[activeTab].services.find((s: ServiceMenu) => s.slug === page.params.service);
 
         if (!currentService) return;
+        if (currentService.slug === 'unterhaltsreinigung') return;
         services[0] = currentService.short_title;
     });
 
@@ -658,7 +659,7 @@
 
     .checked-box__icon {
         opacity: 0;
-        width: 7px;
+        width: 9px;
         height: 7px;
     }
 

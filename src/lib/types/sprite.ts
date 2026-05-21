@@ -15,7 +15,7 @@ export const sizes = {
     'arrow-step': [15, 9],
     'whatsapp': [22, 23],
     'planet': [11, 11],
-    'checked2': [8, 9],
+    'checked2': [11, 10],
 } as const;
 
 export type SpriteId = keyof typeof sizes;
