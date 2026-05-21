@@ -110,13 +110,13 @@
 
     afterNavigate(() => {
         if (!page.params?.service || !page.params?.service_category) return;
+        if (page.params?.service_category === 'unterhaltsreinigung') return;
         activeTab = page.data?.categories.findIndex((c: CategoryArchive) => c.slug === page.params?.service_category) || 0;
         if (!Array.isArray(page?.data?.categories[activeTab]?.services)) return;
 
         const currentService = page?.data?.categories[activeTab].services.find((s: ServiceMenu) => s.slug === page.params.service);
 
         if (!currentService) return;
-        if (currentService.slug === 'unterhaltsreinigung') return;
         services[0] = currentService.short_title;
     });
 
