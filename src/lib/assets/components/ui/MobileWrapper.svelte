@@ -119,15 +119,19 @@
 
         .mobile-wrapper-footer {
             position: absolute;
-            bottom: 64px;
             left: 0;
             right: 0;
+            bottom: 0;
+            padding-block: var(--s-v-400);
             padding-inline: var(--p-container);
+            background: linear-gradient(0deg, rgba(255, 255, 255, 0.70) 0%, rgba(255, 255, 255, 0.00) 100%);
+            backdrop-filter: blur(2px);
         }
 
         .mobile-content {
-            max-height: calc(100svh - 350px);
+            height: 100%;
             overflow-y: auto;
+            padding-bottom: 150px;
         }
     }
 
