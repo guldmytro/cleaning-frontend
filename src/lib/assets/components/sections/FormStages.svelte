@@ -14,6 +14,7 @@
     import type { ServiceMenu } from "$lib/types/service";
     import { afterNavigate } from "$app/navigation";
     import Sprite from "../ui/Sprite.svelte";
+    import { browser } from "$app/environment";
 
     let base = PUBLIC_LOCAL_API_URL;
     base = base.replace('locale', getLocale());
@@ -31,6 +32,13 @@
     let email = $state('');
     let address = $state('');
     let company = $state('');
+    let formEl = $state<HTMLFormElement | null>(null);
+
+    function scrollToForm() {
+        if (browser && window.innerWidth <= 991 && formEl) {
+            formEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+    }
 
 
     let stage1Valid = $derived(!!services.length);
@@ -148,7 +156,7 @@
         
     });
 </script>
-<form class="form stage-{stage}">
+<form bind:this={formEl} class="form stage-{stage}">
     {#if stage < 4}
         <div class="form-header gr">
             <div class="progress">
@@ -160,7 +168,7 @@
                     {#if stage > 1 && stage !== 4}
                         <button type="button" 
                                 class="btn-arrow btn-arrow_prev"
-                                onclick={() => stage--}>
+                                onclick={() => {stage--; scrollToForm()}}>
                             <span class="btn-arrow__img">
                                 <Sprite id="arrow-step" />
                             </span>
@@ -170,7 +178,7 @@
                         <button type="button" 
                                 class="btn-arrow btn-arrow_next"
                                 disabled={(stage === 1 && !stage1Valid) || (stage === 2 && !stage2Valid) || stage === 3}
-                                onclick={() => stage++}>
+                                onclick={() => {stage++; scrollToForm()}}>
                             <span class="btn-arrow__img">
                                 <Sprite id="arrow-step" />
                             </span>
@@ -440,10 +448,10 @@
         {#if stage < 3}
             <div class="bottom-controls">
                 {#if stage > 1 && stage !== 4}
-                    <Button text={m.formPrev()} size="small" style="ghost" invert={true} type="button" onClick={() => stage--} />
+                    <Button text={m.formPrev()} size="small" style="ghost" invert={true} type="button" onClick={() => {stage--; scrollToForm()}} />
                 {/if}
                 {#if stage < 3}
-                    <Button text={m.formNext()} size="small" style="default" white={true} type="button" onClick={() => stage++} disabled={(stage === 1 && !stage1Valid) || (stage === 2 && !stage2Valid) || stage === 3} />
+                    <Button text={m.formNext()} size="small" style="default" white={true} type="button" onClick={() => {stage++; scrollToForm()}} disabled={(stage === 1 && !stage1Valid) || (stage === 2 && !stage2Valid) || stage === 3} />
                 {/if}
             </div>
         {/if}
@@ -452,6 +460,8 @@
 
 <style>
     .form {
+        padding-top: 150px;
+        margin-top: -150px;
         border-radius: 10px;
         overflow: hidden;
         background-color: var(--c-white);
