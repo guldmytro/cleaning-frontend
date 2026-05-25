@@ -23,8 +23,8 @@
 
 <style>
     #form {
-        padding-top: calc(var(--s-v-1400) +  100px);
-        margin-top: calc(var(--s-v-1400) * (-1) - 100px);
+        padding-top: calc(var(--s-v-1400) - 100px);
+        margin-top: calc(var(--s-v-1400) * (-1) + 100px);
     }
 
     .form-section-header {
@@ -48,6 +48,13 @@
             flex-direction: column;
             align-items: flex-start;
             row-gap: var(--s-v-400);
+        }
+    }
+
+    @media (max-width: 575px) {
+        #form {
+            padding-top: calc(var(--s-v-1400) - 200px);
+            margin-top: calc(var(--s-v-1400) * (-1) + 200px);
         }
     }
 </style>
