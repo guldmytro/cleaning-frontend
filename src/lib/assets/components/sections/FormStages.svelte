@@ -339,7 +339,7 @@
                         required={false}
                         looksLikeApieceOfShit={true}
                         placeholder={m.worksPlaceholder()}
-                        helpText={m.rs()}
+                        {helpText}
                         type="text"
                         rows={8}
                         handleInput={(val) => square = val} />
