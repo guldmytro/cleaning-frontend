@@ -131,7 +131,7 @@
         .mobile-content {
             height: 100%;
             overflow-y: auto;
-            padding-bottom: 150px;
+            padding-bottom: 140px;
         }
     }
 
