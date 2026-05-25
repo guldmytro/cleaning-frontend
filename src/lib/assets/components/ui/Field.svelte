@@ -96,6 +96,6 @@
     }
 
     .looksLikeApieceOfShit::placeholder {
-        color: white;
+        color: rgba(255, 255, 255, 0.5);
     }
 </style>
