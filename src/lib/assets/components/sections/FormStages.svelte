@@ -460,8 +460,8 @@
 
 <style>
     .form {
-        padding-top: 150px;
-        margin-top: -150px;
+        padding-top: 140px;
+        margin-top: -140px;
         border-radius: 10px;
         overflow: hidden;
         background-color: var(--c-white);
