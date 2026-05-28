@@ -464,7 +464,7 @@
         margin-top: -140px;
         border-radius: 10px;
         overflow: hidden;
-        background-color: var(--c-white);
+        background-color: transparent;
     }
 
     .progress {
